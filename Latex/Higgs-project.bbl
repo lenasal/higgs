@@ -1,0 +1,8 @@
+\begin{thebibliography}{Pat88}
+
+\bibitem[Pat88]{bibtex.a}
+Oren Patashnik.
+\newblock {{\BibTeX}ing}.
+\newblock Documentation for general {\BibTeX} users, 8$^{th}$~February 1988.
+
+\end{thebibliography}

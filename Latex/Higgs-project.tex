@@ -1,0 +1,89 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+%------------------------------------------%
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+%\usepackage{gnuplot-lua-tikz}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage[bottom]{footmisc}
+%------------------------------------------%
+
+
+%------------------------------------------%
+\newcommand{\Versuchsname}{Project in Multivariate Data Analysis: \\ Higgs Challenge}			% Ändern!!
+\newcommand{\Datum}{4. Februar 2015}			% Ändern!!
+%------------------------------------------%
+
+
+\begin{document}
+%------------------------------------------%
+%------------------------------------------%
+\newcommand{\bra}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\diff}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\E}[1]{\textrm{#1}}
+%------------------------------------------%
+\begin{titlepage}
+	\begin{flushright}
+		\includegraphics[width=0.4\textwidth]{kit_logo_de_farbe_positiv.jpg}\\[1cm] 
+	\end{flushright}
+	\vspace{2cm}
+	\begin{center}
+	{\huge \textbf{Modern Methods in Data Analysis}}
+	\vspace{1cm}
+
+\HRule \\[0.4cm]
+{ \huge \bfseries \Versuchsname}\\[0.2cm]
+\HRule \\[0.5cm]
+
+% Author and supervisor
+\begin{flushleft}
+	\begin{minipage}{0.4\textwidth}
+	\large
+		\begin{tabular}{l l}
+			Lukas Fritz & 1686473 \\
+			Fabian Leven & 1638446\\
+			Ali Deniz Özdemir & "Enter Matrklnr"\\
+			Lena Salfenmoser & "Enter Matrklnr"\\
+			Johannes Heizmann & 1725035 \\
+		\end{tabular}
+	\end{minipage}
+\end{flushleft}
+\vfill
+
+% Unterer Teil der Seite
+{\large \Datum}
+\end{center}
+
+\end{titlepage}
+\tableofcontents
+\newpage
+%------------------------------------------%
+
+
+
+
+%------------------------------------------%
+\numberwithin{equation}{section}
+
+%------------------------------------------%
+
+\input{sections/Introduction/introduction}
+\input{sections/getting_familiar/getting_familiar}
+\input{sections/improvements/improvements}
+\input{sections/conclusion/conclusion}
+%\bibliography{bibliography}
+%\bibliographystyle{alpha}
+%\bibliographystyle{unsrt}
+
+\end{document}

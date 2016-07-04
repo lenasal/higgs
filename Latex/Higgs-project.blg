@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/TeX Live for SUSE Linux)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Higgs-project.aux
+A level-1 auxiliary file: Order.aux
+The style file: alpha.bst
+Database file #1: bibliography.bib
+You've used 1 entry,
+            2543 wiz_defined-function locations,
+            565 strings with 4564 characters,
+and the built_in function-call counts, 261 in all, are:
+= -- 25
+> -- 8
+< -- 1
++ -- 2
+- -- 2
+* -- 15
+:= -- 56
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 5
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 10
+empty$ -- 15
+format.name$ -- 4
+if$ -- 46
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 8
+num.names$ -- 3
+pop$ -- 2
+preamble$ -- 1
+purify$ -- 6
+quote$ -- 0
+skip$ -- 10
+stack$ -- 0
+substring$ -- 7
+swap$ -- 0
+text.length$ -- 1
+text.prefix$ -- 1
+top$ -- 0
+type$ -- 8
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 14
