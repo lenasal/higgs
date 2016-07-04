@@ -50,3 +50,4 @@ for x in range(xN):
     variable_name_x = variable_names[x]
     print(variable_name_x, "can be ignored")
     
+#some commet to show stuff to Deniz
