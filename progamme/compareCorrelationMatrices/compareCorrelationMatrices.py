@@ -8,8 +8,7 @@ import numpy as np
 from ROOT import Double
 
 
-
-filename="TMVAout.root"
+filename="../00daten/trainingsOutput/001_default/TMVAout.root"
 correlation_boundary=15
 
 
@@ -49,5 +48,3 @@ for x in range(xN):
   if can_be_ignored:
     variable_name_x = variable_names[x]
     print(variable_name_x, "can be ignored")
-    
-#some commet to show stuff to Deniz
