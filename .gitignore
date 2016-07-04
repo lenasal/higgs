@@ -1,0 +1,11 @@
+/ausarbeitung/Latex/*.aux
+/ausarbeitung/Latex/*.bbl
+/ausarbeitung/Latex/*.blg
+/ausarbeitung/Latex/*.dvi
+/ausarbeitung/Latex/*.log
+/ausarbeitung/Latex/*.out
+/ausarbeitung/Latex/*.gz
+/ausarbeitung/Latex/*.toc
+/.settings
+/*.project
+/*.texlipse
