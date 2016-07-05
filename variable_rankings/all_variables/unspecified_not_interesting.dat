@@ -1,0 +1,33 @@
+Rank    Variable   		    Separation
+
+1    DER_mass_transverse_met_lep    3.388e-01
+2    DER_mass_MMC   		    2.925e-01
+3    DER_pt_ratio_lep_tau           1.882e-01
+4    PRI_tau_pt                     1.831e-01
+5    DER_mass_vis                   1.788e-01
+6    DER_met_phi_centrality         1.239e-01
+7    PRI_met                        1.098e-01
+8    DER_deltar_tau_lep             8.603e-02
+9    PRI_met_sumet                  5.545e-02
+10    DER_sum_pt                    5.454e-02
+11    PRI_lep_eta                   3.990e-02
+12    DER_pt_h                      3.563e-02
+13    PRI_jet_all_pt                3.137e-02
+14    PRI_jet_leading_pt            2.856e-02
+15    PRI_lep_pt                    2.656e-02
+16    PRI_jet_num                   2.582e-02
+17    DER_mass_jet_jet              2.363e-02
+18    PRI_tau_eta                   2.288e-02
+19    PRI_jet_leading_phi           2.085e-02
+20    PRI_jet_leading_eta           2.082e-02
+21    DER_lep_eta_centrality        2.075e-02
+22    PRI_jet_subleading_pt         1.739e-02
+23    DER_prodeta_jet_jet           1.718e-02
+24    PRI_jet_subleading_eta        1.692e-02
+25    DER_deltaeta_jet_jet          1.690e-02
+26    PRI_jet_subleading_phi        1.687e-02
+27    DER_pt_tot                    9.129e-03
+28    PRI_met_phi                   4.897e-03
+29    PRI_tau_phi                   4.232e-03
+30    PRI_lep_phi                   2.905e-03
+  
