@@ -12,25 +12,25 @@ variables =["DER_mass_MMC",
 	    "DER_pt_tot",
 	    "DER_sum_pt",
 	    "DER_pt_ratio_lep_tau",
-            "DER_met_phi_centrality",
-            "DER_lep_eta_centrality",
-            "PRI_tau_pt",
-            "PRI_tau_eta",
-            "PRI_tau_phi",
-            "PRI_lep_pt",
-            "PRI_lep_eta",
-            "PRI_lep_phi",
-            "PRI_met",
-            "PRI_met_phi",
-            "PRI_met_sumet",
-            "PRI_jet_num",
-            "PRI_jet_leading_pt",
-            "PRI_jet_leading_eta",
-            "PRI_jet_leading_phi",
-            "PRI_jet_subleading_pt",
-            "PRI_jet_subleading_eta",
-            "PRI_jet_subleading_phi",
-            "PRI_jet_all_pt"]
+        "DER_met_phi_centrality",
+        "DER_lep_eta_centrality",
+        "PRI_tau_pt",
+        "PRI_tau_eta",
+        "PRI_tau_phi",
+        "PRI_lep_pt",
+        "PRI_lep_eta",
+        "PRI_lep_phi",
+        "PRI_met",
+        "PRI_met_phi",
+        "PRI_met_sumet",
+        "PRI_jet_num",
+        "PRI_jet_leading_pt",
+        "PRI_jet_leading_eta",
+        "PRI_jet_leading_phi",
+        "PRI_jet_subleading_pt",
+        "PRI_jet_subleading_eta",
+        "PRI_jet_subleading_phi",
+        "PRI_jet_all_pt"]
 
 data = np.loadtxt("the_results.txt")
 score_likelihood = []
@@ -44,10 +44,10 @@ for i in range(len(data)):
   score_bdt.append([data[i][4], variables[i]])
   score_mlp.append([data[i][6], variables[i]])
 
-np.sort(score_likelihood)
-np.sort(score_fisher)
-np.sort(score_bdt)
-np.sort(score_mlp)
+score_likelihood=sorted(score_likelihood,key=lambda x:x[0])
+score_fisher=sorted(score_fisher,key=lambda x:x[0])
+score_bdt=sorted(score_bdt,key=lambda x:x[0])
+score_mlp=sorted(score_mlp,key=lambda x:x[0])
 
 # writes ranking of variables in output file; highest score means best score without current variable;
 # variables standing further down in the output file are less important for the analysis
