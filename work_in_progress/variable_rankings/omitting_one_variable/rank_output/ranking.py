@@ -33,19 +33,55 @@ variables =["DER_mass_MMC",
             "PRI_jet_all_pt"]
 
 data = np.loadtxt("the_results.txt")
-score = []
+score_likelihood = []
+score_fisher = []
+score_bdt = []
+score_mlp = []
 
 for i in range(len(data)):
-  score.append([data[i][0] + data[i][2] + data[i][4] + data[i][6], variables[i]])
+  score_likelihood.append([data[i][0], variables[i]])
+  score_fisher.append([data[i][2], variables[i]])
+  score_bdt.append([data[i][4], variables[i]])
+  score_mlp.append([data[i][6], variables[i]])
 
-print np.sort(score)
+np.sort(score_likelihood)
+np.sort(score_fisher)
+np.sort(score_bdt)
+np.sort(score_mlp)
 
-# writes ranking of variables in output file; highest score means best score without current variable; highest ranking means least important
-data_ranking_variables = open("ranking_variables_onemissing.dat", "w")
-for x in range(len(data)):
-  data_ranking_variables.write(str(score[x][0]) + "\t" + score[x][1] + "\n")
-data_ranking_variables.close
+# writes ranking of variables in output file; highest score means best score without current variable;
+# variables standing further down in the output file are less important for the analysis
+with open("variable_ranking_score_likelihood.dat", "w") as output_file:
+  for i in range(len(data)):
+    output_file.write(str(score_likelihood[i][0]) + "\t" + score_likelihood[i][1] + "\n")  
+with open("variable_ranking_likelihood.dat", "w") as output_file:
+  for i in range(len(data)):
+    output_file.write("\""+score_likelihood[i][1] + "\",\n")
 
 
+    
+with open("variable_ranking_score_fisher.dat", "w") as output_file:
+  for i in range(len(data)):
+    output_file.write(str(score_fisher[i][0]) + "\t" + score_fisher[i][1] + "\n")  
+with open("variable_ranking_fisher.dat", "w") as output_file:
+  for i in range(len(data)):
+    output_file.write("\""+score_fisher[i][1] + "\",\n")
+ 
+ 
+
+with open("variable_ranking_score_bdt.dat", "w") as output_file:
+  for i in range(len(data)):
+    output_file.write(str(score_bdt[i][0]) + "\t" + score_bdt[i][1] + "\n")  
+with open("variable_ranking_bdt.dat", "w") as output_file:
+  for i in range(len(data)):
+    output_file.write("\""+score_bdt[i][1] + "\",\n")
+
+
+with open("variable_ranking_score_mlp.dat", "w") as output_file:
+  for i in range(len(data)):
+    output_file.write(str(score_mlp[i][0]) + "\t" + score_mlp[i][1] + "\n")  
+with open("variable_ranking_mlp.dat", "w") as output_file:
+  for i in range(len(data)):
+    output_file.write("\""+score_mlp[i][1] + "\",\n")
 
 
