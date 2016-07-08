@@ -64,8 +64,7 @@ def get_variables():
       "DER_deltaeta_jet_jet",
       "PRI_met",
       "PRI_tau_phi",
-      "DER_met_phi_centrality",
-      "DER_pt_tot"
+      "DER_met_phi_centrality"
     ]
 
 def train(feature_filename = 'atlas-higgs-challenge-2014-v2_part.root', 

@@ -51,7 +51,7 @@ def write_python_array_of_parameters(method_names, parameter_names_ranked, how_m
     print("\n\n",method_names[j],":")
     for i in range(len(parameter_names_ranked[j])):
       print("\"",parameter_names_ranked[j][i],"\",",sep='')
-      if i > how_many_parameters_should_be_used[j]:
+      if i > how_many_parameters_should_be_used[j]-1:
 	break
       
 	
