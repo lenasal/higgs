@@ -18,10 +18,13 @@ matplotlib.rcParams['backend']='TkAgg'
 
 from matplotlib import pyplot as plt
 
+#at least this amount of parameters sholud be used even if the ams is better with less
 min_wanted_parameters=10
+#the folder that contains the data
+data_folder="./../data/"
 
-datas=[np.loadtxt('likelihood_ranking.dat'), np.loadtxt('fisher_ranking.dat'), np.loadtxt('bdt_ranking.dat'), np.loadtxt('mlp_ranking.dat')]
-titles=["Likelihood", "Fisher", "BDT", "MLP"]
+datas=[np.loadtxt(data_folder+'likelihood_ranking.dat'), np.loadtxt(data_folder+'fisher_ranking.dat'), np.loadtxt(data_folder+'bdt_ranking.dat'), np.loadtxt(data_folder+'mlp_ranking.dat')]
+method_names=["Likelihood", "Fisher", "BDT", "MLP"]
 f, axarr = plt.subplots(2, 2)
 plot_indices=[(0,0), (0,1), (1,0), (1,1)]
 
@@ -44,7 +47,7 @@ for i in range(len(datas)):
     #plot
     ax.plot(parameter_counts,amss,'-x', color="black")
     ax.axvline(parameter_count_for_max_ams, color="black")
-    ax.set_title(titles[i])
+    ax.set_title(method_names[i])
     ax.set_xlabel("Anzahl Parameter")
     ax.set_ylabel("AMS")
     ax.set_xlim([0,30.7])
