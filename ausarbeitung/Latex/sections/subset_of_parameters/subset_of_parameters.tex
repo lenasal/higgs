@@ -1,0 +1,56 @@
+\section{Auswahl einer geeigneten Untermenge an Parametern}
+
+%\usepackage{graphics} is needed for \includegraphics
+\begin{figure}[htp]
+\begin{center}
+  \includegraphics[width=\linewidth]{sections/subset_of_parameters/parameter_count_ranking_by_method.pdf}
+  \caption[AMS über der Anzahl der Parameter]{AMS über der Anzahl der Parameter.}
+  \label{ams_over_parameter_count}
+\end{center}
+\end{figure}
+
+\begin{table}
+\caption{Bewertung der Parameter. Für die einzelnen Methoden nimmt die
+Gewichtung der Parameter von oben nach unten ab. Für jede Methode ist
+gekennzeichnet, welche Parameter nicht mehr verwendet werden.}
+\small
+\begin{tabular}{c|c|c|c}
+Likelihood & Fisher & BDT & MLP \\
+\hline
+d\_deltar\_tau\_lep & d\_mass\_vis & d\_mass\_transverse\_met\_lep & p\_jet\_num \\ 
+d\_mass\_MMC & d\_deltar\_tau\_lep & d\_deltar\_tau\_lep & d\_deltaeta\_jet\_jet \\ 
+d\_pt\_ratio\_lep\_tau & d\_mass\_transverse\_met\_lep & d\_mass\_MMC & d\_mass\_MMC \\ 
+d\_mass\_transverse\_met\_lep & d\_pt\_ratio\_lep\_tau & d\_mass\_vis & p\_jet\_leading\_pt \\ 
+d\_mass\_vis & p\_met\_phi & d\_pt\_ratio\_lep\_tau & d\_mass\_transverse\_met\_lep \\ 
+d\_mass\_jet\_jet & p\_jet\_num & p\_lep\_pt & p\_jet\_leading\_eta \\ 
+d\_prodeta\_jet\_jet & d\_mass\_jet\_jet & d\_pt\_h & d\_mass\_jet\_jet \\ 
+d\_deltaeta\_jet\_jet & d\_mass\_MMC & p\_jet\_subleading\_eta & p\_jet\_leading\_phi \\ 
+d\_lep\_eta\_centrality & p\_jet\_subleading\_pt & p\_lep\_phi & d\_pt\_h \\ 
+p\_lep\_eta & d\_deltaeta\_jet\_jet & d\_mass\_jet\_jet & d\_mass\_vis \\ 
+d\_met\_phi\_centrality & d\_sum\_pt & d\_lep\_eta\_centrality & p\_jet\_subleading\_phi \\ 
+p\_jet\_subleading\_eta & p\_tau\_pt & p\_lep\_eta & d\_prodeta\_jet\_jet \\ 
+p\_tau\_eta & p\_lep\_pt & p\_jet\_subleading\_pt & p\_jet\_subleading\_pt \\ 
+d\_pt\_h & p\_jet\_all\_pt & d\_sum\_pt & p\_tau\_pt \\ 
+p\_tau\_phi & p\_lep\_phi & p\_jet\_subleading\_phi & p\_met\_phi \\ 
+p\_tau\_pt & d\_pt\_h & p\_jet\_leading\_phi & p\_jet\_all\_pt \\ 
+p\_jet\_subleading\_pt & p\_lep\_eta & p\_jet\_leading\_eta & p\_met\_sumet \\ 
+d\_sum\_pt & p\_met & p\_met\_sumet & p\_tau\_eta \\ 
+- & & & - \\ 
+p\_lep\_phi & p\_met\_sumet & p\_jet\_leading\_pt & p\_met \\ 
+p\_lep\_pt & p\_jet\_leading\_phi & p\_tau\_eta & d\_met\_phi\_centrality \\ 
+ & - & & \\ 
+p\_met & p\_jet\_leading\_eta & d\_prodeta\_jet\_jet & d\_pt\_ratio\_lep\_tau \\ 
+p\_jet\_leading\_pt & d\_lep\_eta\_centrality & p\_jet\_all\_pt & p\_tau\_phi \\ 
+p\_met\_phi & p\_jet\_subleading\_phi & p\_jet\_num & p\_jet\_subleading\_eta \\ 
+p\_met\_sumet & p\_tau\_eta & p\_tau\_pt & p\_lep\_phi \\ 
+p\_jet\_subleading\_phi & p\_jet\_subleading\_eta & p\_met\_phi & d\_pt\_tot \\ 
+p\_jet\_num & p\_jet\_leading\_pt & d\_deltaeta\_jet\_jet & p\_lep\_eta \\ 
+d\_pt\_tot & d\_pt\_tot & p\_met & d\_sum\_pt \\ 
+p\_jet\_all\_pt & d\_prodeta\_jet\_jet & p\_tau\_phi & d\_lep\_eta\_centrality \\ 
+p\_jet\_leading\_phi & p\_tau\_phi & d\_met\_phi\_centrality & p\_lep\_pt \\ 
+ & & - & \\ 
+p\_jet\_leading\_eta & d\_met\_phi\_centrality & d\_pt\_tot & d\_deltar\_tau\_lep \\ 
+
+\end{tabular}
+\label{parameter_ranking}
+\end{table}
