@@ -45,6 +45,14 @@ def write_latex_table(method_names, parameter_names_ranked, how_many_parameters_
 def write_after_which_varibale_is_the_cut(method_names, parameter_names_ranked, how_many_parameters_should_be_used):
     for j in range(len(method_names)):
         print(method_names[j],": ", parameter_names_ranked[j][how_many_parameters_should_be_used[j]-1])
+        
+def write_python_array_of_parameters(method_names, parameter_names_ranked, how_many_parameters_should_be_used):
+  for j in range(len(method_names)):
+    print("\n\n",method_names[j],":")
+    for i in range(len(parameter_names_ranked[j])):
+      print("\"",parameter_names_ranked[j][i],"\",",sep='')
+      if i > how_many_parameters_should_be_used[j]:
+	break
       
 	
 
@@ -77,8 +85,9 @@ for i in range(len(datas)):
 	    how_many_parameters_should_be_used.append(data_row[0])
             break
 
-write_latex_table(method_names, parameters_names_ranked, how_many_parameters_should_be_used)
-write_after_which_varibale_is_the_cut(method_names, parameters_names_ranked, how_many_parameters_should_be_used)
+#write_latex_table(method_names, parameters_names_ranked, how_many_parameters_should_be_used)
+#write_after_which_varibale_is_the_cut(method_names, parameters_names_ranked, how_many_parameters_should_be_used)
+write_python_array_of_parameters(method_names, parameters_names_ranked, how_many_parameters_should_be_used)
   
 
 
