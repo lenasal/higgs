@@ -29,12 +29,22 @@ def write_latex_table(method_names, parameter_names_ranked, how_many_parameters_
   result=""
   for i in range(len(parameter_names_ranked[0])):
     for j in range(len(method_names)):
-      result+=parameter_names_ranked[j][i]
+      parameter_name=parameter_names_ranked[j][i]
+      parameter_name=parameter_name.replace("DER_", "d_")
+      parameter_name=parameter_name.replace("PRI_", "p_")
+      parameter_name=parameter_name.replace("_", "\\_")  
+      result+=parameter_name
       if j == len(method_names)-1:
 	result+=" \\\\ \n"
       else:
 	result+=" & "
+    if i+1 in how_many_parameters_should_be_used:
+        result+=" & & & \\\\ \n"
   print(result)
+  
+def write_after_which_varibale_is_the_cut(method_names, parameter_names_ranked, how_many_parameters_should_be_used):
+    for j in range(len(method_names)):
+        print(method_names[j],": ", parameter_names_ranked[j][how_many_parameters_should_be_used[j]-1])
       
 	
 
@@ -66,8 +76,9 @@ for i in range(len(datas)):
         if parameter_count_for_max_ams>=min_wanted_parameters:
 	    how_many_parameters_should_be_used.append(data_row[0])
             break
-    
+
 write_latex_table(method_names, parameters_names_ranked, how_many_parameters_should_be_used)
+write_after_which_varibale_is_the_cut(method_names, parameters_names_ranked, how_many_parameters_should_be_used)
   
 
 
