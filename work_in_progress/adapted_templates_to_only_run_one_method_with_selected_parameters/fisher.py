@@ -36,27 +36,36 @@ def get_variables():
 
 # return list of variables to be used (eventually only a sub-set of the above)
     return [
-      "DER_mass_vis",
-      "DER_deltar_tau_lep",
-      "DER_mass_transverse_met_lep",
-      "DER_pt_ratio_lep_tau",
-      "PRI_met_phi",
-      "PRI_jet_num",
-      "DER_mass_jet_jet",
-      "DER_mass_MMC",
-      "PRI_jet_subleading_pt",
-      "DER_deltaeta_jet_jet",
-      "DER_sum_pt",
-      "PRI_tau_pt",
-      "PRI_lep_pt",
-      "PRI_jet_all_pt",
-      "PRI_lep_phi",
-      "DER_pt_h",
-      "PRI_lep_eta",
-      "PRI_met",
-      "PRI_met_sumet",
-      "PRI_jet_leading_phi",
-      "PRI_jet_leading_eta"
+        "DER_mass_transverse_met_lep",
+        "DER_pt_ratio_lep_tau",
+        "PRI_lep_pt",
+        "DER_mass_vis",
+        "DER_deltar_tau_lep",
+        "DER_pt_h",
+        "PRI_tau_pt",
+        "DER_mass_jet_jet",
+        "PRI_met",
+        "DER_prodeta_jet_jet",
+        "PRI_jet_subleading_pt",
+        "PRI_lep_phi",
+        "DER_mass_MMC",
+        "DER_deltaeta_jet_jet"
+        #"DER_lep_eta_centrality",
+        #"PRI_jet_leading_phi",
+        #"PRI_jet_leading_eta",
+        #"DER_sum_pt",
+        #"PRI_jet_subleading_eta",
+        #"PRI_tau_phi",
+        #"PRI_met_phi",
+        #"PRI_jet_leading_pt",
+        #"PRI_tau_eta",
+        #"PRI_met_sumet",
+        #"PRI_jet_num",
+        #"DER_pt_tot",
+        #"PRI_lep_eta",
+        #"PRI_jet_subleading_eta",
+        #"PRI_jet_all_pt",
+        #"DER_met_phi_centrality"
     ]
 
 def train(feature_filename = 'atlas-higgs-challenge-2014-v2_part.root', 
@@ -396,7 +405,7 @@ if __name__ == '__main__':
 #    ROOT.gROOT.SetBatch() # switch on root batch mode
 #                      useful if plots are to ge generated without displaying them
 
-    infile='atlas-higgs-challenge-2014-v2_part.root'
+    infile='../00daten/trainingsDaten/atlas-higgs-challenge-2014-v2_part.root'
     TMVAoutfile='TMVAout.root'
     resultfile='result.csv'
 

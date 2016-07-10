@@ -409,45 +409,42 @@ if __name__ == '__main__':
 #                      useful if plots are to ge generated without displaying them
 
     infile='../../../00daten/trainingsDaten/atlas-higgs-challenge-2014-v2_part.root'
-    method_prefix="_likelihood"
+    method_prefix="_bdt"
+    outfile_name=method_prefix+"_parameter_ranking.dat"
 
     global all_parameters
     so_far_best_parameters=copy.deepcopy(all_parameters)
     global current_selection_of_parameters
     current_selection_of_parameters=[]
     ranking_results=[]
-    
-    for j in range(len(all_parameters)-1):
-        ranking_results.append([])
-        for omitted_parameter in so_far_best_parameters:
-            current_selection_of_parameters=copy.deepcopy(so_far_best_parameters)
-            current_selection_of_parameters.remove(omitted_parameter)
-            
-            file_name_appendix=method_prefix+"_"+str(j+1)+"_"+omitted_parameter
-            TMVAoutfile='TMVAout'+file_name_appendix+'.root'
-            resultfile='result'+file_name_appendix+'.csv'
-            
-            
-            ROOT.gROOT.Macro("./TMVAlogon.C")
-            print "training---------------------------------------------------------"
-            train(infile, TMVAoutfile)
-            print "evaluation---------------------------------------------------------"
-            evaluate(infile,resultfile)
-            print "analyse---------------------------------------------------------"
-            maxams = analyse(resultfile)
-            print""
-            ranking_results[j].append([omitted_parameter, maxams[0], maxams[1]])
-            
-        ranking_results[j]=sorted(ranking_results[j], key=lambda x:x[1])
-        worst_parameter=ranking_results[j][-1][0]
-        so_far_best_parameters.remove(worst_parameter)
-    
-    #output
-    outfile_name=method_prefix+"_parameter_ranking.dat"
     with open(outfile_name, "w") as out_file:    
         for j in range(len(all_parameters)-1):
-            parameter_count=30-j-1
-            #least significant parameter when run with 30-j-1 parameters
+            ranking_results.append([])
+            for omitted_parameter in so_far_best_parameters:
+                current_selection_of_parameters=copy.deepcopy(so_far_best_parameters)
+                current_selection_of_parameters.remove(omitted_parameter)
+                
+                file_name_appendix=method_prefix+"_"+str(j+1)+"_"+omitted_parameter
+                TMVAoutfile='TMVAout'+file_name_appendix+'.root'
+                resultfile='result'+file_name_appendix+'.csv'
+                
+                
+                ROOT.gROOT.Macro("./TMVAlogon.C")
+                print "training---------------------------------------------------------"
+                train(infile, TMVAoutfile)
+                print "evaluation---------------------------------------------------------"
+                evaluate(infile,resultfile)
+                print "analyse---------------------------------------------------------"
+                maxams_F = analyse(resultfile)
+                print""
+                ranking_results[j].append([omitted_parameter, maxams_F[0], maxams_F[1]])
+                os.remove(TMVAoutfile)
+                os.remove(resultfile)
+            
+            ranking_results[j]=sorted(ranking_results[j], key=lambda x:x[1])
             least_significant_parameter=ranking_results[j][-1][0]
             max_ams_when_this_parameter_is_omitted=ranking_results[j][-1][1]
+            parameter_count=30-j-1
             out_file.write(str(parameter_count)+"\t"+str(max_ams_when_this_parameter_is_omitted)+"\t"+least_significant_parameter+"\n")
+            out_file.flush()
+            so_far_best_parameters.remove(least_significant_parameter)

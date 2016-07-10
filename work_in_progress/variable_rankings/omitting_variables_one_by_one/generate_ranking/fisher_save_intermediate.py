@@ -23,36 +23,36 @@ import copy
 
 
 all_parameters = [
-"DER_mass_MMC", 
+#"DER_mass_MMC", 
 "DER_mass_transverse_met_lep", 
 "DER_mass_vis",
 "DER_pt_h",
-"DER_deltaeta_jet_jet", 
+#"DER_deltaeta_jet_jet", 
 "DER_mass_jet_jet", 
 "DER_prodeta_jet_jet",
 "DER_deltar_tau_lep", 
-"DER_pt_tot", 
-"DER_sum_pt", 
+#"DER_pt_tot", 
+#"DER_sum_pt", 
 "DER_pt_ratio_lep_tau",
-"DER_met_phi_centrality", 
-"DER_lep_eta_centrality", 
+#"DER_met_phi_centrality", 
+#"DER_lep_eta_centrality", 
 "PRI_tau_pt", 
-"PRI_tau_eta", 
-"PRI_tau_phi",
+#"PRI_tau_eta", 
+#"PRI_tau_phi",
 "PRI_lep_pt", 
-"PRI_lep_eta", 
-"PRI_lep_phi", 
+#"PRI_lep_eta", 
+#"PRI_lep_phi", 
 "PRI_met", 
-"PRI_met_phi", 
-"PRI_met_sumet",
-"PRI_jet_num", 
-"PRI_jet_leading_pt", 
-"PRI_jet_leading_eta", 
-"PRI_jet_leading_phi",
-"PRI_jet_subleading_pt",
-"PRI_jet_subleading_eta",
-"PRI_jet_subleading_phi",
-"PRI_jet_all_pt"
+#"PRI_met_phi", 
+#"PRI_met_sumet",
+#"PRI_jet_num", 
+#"PRI_jet_leading_pt", 
+#"PRI_jet_leading_eta", 
+#"PRI_jet_leading_phi",
+#"PRI_jet_subleading_pt",
+#"PRI_jet_subleading_eta"
+#"PRI_jet_subleading_phi",
+#"PRI_jet_all_pt"
 ]
 
 current_selection_of_parameters=[]
@@ -410,44 +410,42 @@ if __name__ == '__main__':
 
     infile='../../../00daten/trainingsDaten/atlas-higgs-challenge-2014-v2_part.root'
     method_prefix="_fisher"
+    outfile_name=method_prefix+"_parameter_ranking.dat"
 
     global all_parameters
     so_far_best_parameters=copy.deepcopy(all_parameters)
     global current_selection_of_parameters
     current_selection_of_parameters=[]
     ranking_results=[]
-    
-    for j in range(len(all_parameters)-1):
-        ranking_results.append([])
-        for omitted_parameter in so_far_best_parameters:
-            current_selection_of_parameters=copy.deepcopy(so_far_best_parameters)
-            current_selection_of_parameters.remove(omitted_parameter)
-            
-            file_name_appendix=method_prefix+"_"+str(j+1)+"_"+omitted_parameter
-            TMVAoutfile='TMVAout'+file_name_appendix+'.root'
-            resultfile='result'+file_name_appendix+'.csv'
-            
-            
-            ROOT.gROOT.Macro("./TMVAlogon.C")
-            print "training---------------------------------------------------------"
-            train(infile, TMVAoutfile)
-            print "evaluation---------------------------------------------------------"
-            evaluate(infile,resultfile)
-            print "analyse---------------------------------------------------------"
-            maxams_F = analyse(resultfile)
-            print""
-            ranking_results[j].append([omitted_parameter, maxams_F[0], maxams_F[1]])
-            
-        ranking_results[j]=sorted(ranking_results[j], key=lambda x:x[1])
-        worst_parameter=ranking_results[j][-1][0]
-        so_far_best_parameters.remove(worst_parameter)
-    
-    #output
-    outfile_name=method_prefix+"_parameter_ranking.dat"
     with open(outfile_name, "w") as out_file:    
         for j in range(len(all_parameters)-1):
-            parameter_count=30-j-1
-            #least significant parameter when run with 30-j-1 parameters
+            ranking_results.append([])
+            for omitted_parameter in so_far_best_parameters:
+                current_selection_of_parameters=copy.deepcopy(so_far_best_parameters)
+                current_selection_of_parameters.remove(omitted_parameter)
+                
+                file_name_appendix=method_prefix+"_"+str(j+1)+"_"+omitted_parameter
+                TMVAoutfile='TMVAout'+file_name_appendix+'.root'
+                resultfile='result'+file_name_appendix+'.csv'
+                
+                
+                ROOT.gROOT.Macro("./TMVAlogon.C")
+                print "training---------------------------------------------------------"
+                train(infile, TMVAoutfile)
+                print "evaluation---------------------------------------------------------"
+                evaluate(infile,resultfile)
+                print "analyse---------------------------------------------------------"
+                maxams_F = analyse(resultfile)
+                print""
+                ranking_results[j].append([omitted_parameter, maxams_F[0], maxams_F[1]])
+                os.remove(TMVAoutfile)
+                os.remove(resultfile)
+            
+            ranking_results[j]=sorted(ranking_results[j], key=lambda x:x[1])
             least_significant_parameter=ranking_results[j][-1][0]
             max_ams_when_this_parameter_is_omitted=ranking_results[j][-1][1]
+            parameter_count=30-j-1
             out_file.write(str(parameter_count)+"\t"+str(max_ams_when_this_parameter_is_omitted)+"\t"+least_significant_parameter+"\n")
+            out_file.flush()
+            so_far_best_parameters.remove(least_significant_parameter)
+
