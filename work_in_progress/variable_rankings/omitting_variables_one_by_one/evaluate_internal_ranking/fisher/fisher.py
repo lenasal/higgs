@@ -24,36 +24,36 @@ import time
 
 
 all_variables_ranked = [
-"DER_mass_vis", # <- most important
-"DER_deltar_tau_lep",
-"DER_mass_transverse_met_lep",
-"DER_pt_ratio_lep_tau",
-"PRI_met_phi",
-"PRI_jet_num",
-"DER_mass_jet_jet",
-"DER_mass_MMC",
-"PRI_jet_subleading_pt",
-"DER_deltaeta_jet_jet",
-"DER_sum_pt",
-"PRI_tau_pt",
-"PRI_lep_pt",
-"PRI_jet_all_pt",
-"PRI_lep_phi",
-"DER_pt_h",
-"PRI_lep_eta",
-"PRI_met",
-"PRI_met_sumet",
-"PRI_jet_leading_phi",
-"PRI_jet_leading_eta",
-"DER_lep_eta_centrality",
-"PRI_jet_subleading_phi",
-"PRI_tau_eta",
-"PRI_jet_subleading_eta",
-"PRI_jet_leading_pt",
-"DER_pt_tot",
-"DER_prodeta_jet_jet",
-"PRI_tau_phi",
-"DER_met_phi_centrality"# <- least important
+   "DER_mass_transverse_met_lep",
+   "DER_mass_MMC",
+   "DER_pt_ratio_lep_tau",
+   "PRI_tau_pt",
+   "DER_met_phi_centrality",
+   "PRI_met_sumet",
+   "DER_pt_h",
+   "DER_sum_pt",
+   "PRI_jet_all_pt",
+   "PRI_jet_num",
+   "PRI_jet_leading_pt",
+   "DER_mass_jet_jet",
+   "PRI_jet_leading_phi",
+   "PRI_jet_leading_eta",
+   "PRI_jet_subleading_pt",
+   "DER_deltaeta_jet_jet",
+   "DER_lep_eta_centrality",
+   "PRI_jet_subleading_eta",
+   "PRI_jet_subleading_phi",
+   "DER_prodeta_jet_jet",
+   "PRI_lep_pt",
+   "PRI_met",
+   "DER_deltar_tau_lep",
+   "DER_pt_tot",
+   "DER_mass_vis",
+   "PRI_met_phi",
+   "PRI_lep_phi",
+   "PRI_lep_eta",
+   "PRI_tau_phi",
+   "PRI_tau_eta"
 ]
 
 current_selection_of_variables=[]
@@ -397,7 +397,7 @@ if __name__ == '__main__':
 #    ROOT.gROOT.SetBatch() # switch on root batch mode
 #                      useful if plots are to ge generated without displaying them
 
-    infile='../atlas-higgs-challenge-2014-v2_part.root'
+    infile='../../../../00daten/trainingsDaten/atlas-higgs-challenge-2014-v2_part.root'
     outfile_name="fisher_ranking.dat"
 
     global all_variables_ranked
@@ -405,18 +405,18 @@ if __name__ == '__main__':
     
     with open(outfile_name, "w") as ams_results_file:
       for i in range(len(all_variables_ranked)):
-	current_selection_of_variables=all_variables_ranked[:-i if i >0 else len(all_variables_ranked)]
-	name_appendix=str(30-i)+'variables'
-	TMVAoutfile='TMVAout_'+name_appendix+'.root'
-	resultfile='result_'+name_appendix+'.csv'
-	ROOT.gROOT.Macro("./TMVAlogon.C")
-	print "training---------------------------------------------------------"
-	start_time = time.time()
-	train(infile, TMVAoutfile)
-	# zeit in sekunden
-	duration=time.time()-start_time
-	print "evaluation---------------------------------------------------------"
-	evaluate(infile,resultfile)
-	print "analyse---------------------------------------------------------"
-	maxams = analyse(resultfile)
-	ams_results_file.write(str(30-i) + "\t" + str(maxams[0])+ "\t" + str(maxams[1])+ "\t" + str(duration)+ "\n")
+    	current_selection_of_variables=all_variables_ranked[:-i if i >0 else len(all_variables_ranked)]
+    	name_appendix=str(30-i)+'variables'
+    	TMVAoutfile='TMVAout_'+name_appendix+'.root'
+    	resultfile='result_'+name_appendix+'.csv'
+    	ROOT.gROOT.Macro("./TMVAlogon.C")
+    	print "training---------------------------------------------------------"
+    	start_time = time.time()
+    	train(infile, TMVAoutfile)
+    	# zeit in sekunden
+    	duration=time.time()-start_time
+    	print "evaluation---------------------------------------------------------"
+    	evaluate(infile,resultfile)
+    	print "analyse---------------------------------------------------------"
+    	maxams = analyse(resultfile)
+    	ams_results_file.write(str(30-i) + "\t" + str(maxams[0])+ "\t" + str(maxams[1])+ "\t" + str(duration)+ "\n")

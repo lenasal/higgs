@@ -393,7 +393,7 @@ if __name__ == '__main__':
 #    ROOT.gROOT.SetBatch() # switch on root batch mode
 #                      useful if plots are to ge generated without displaying them
 
-    infile='../atlas-higgs-challenge-2014-v2_part.root'
+    infile='../../../../00daten/trainingsDaten/atlas-higgs-challenge-2014-v2_part.root'
     outfile_name="bdt_ranking.dat"
 
     global all_variables_ranked
@@ -401,18 +401,18 @@ if __name__ == '__main__':
     
     with open(outfile_name, "w") as ams_results_file:
       for i in range(len(all_variables_ranked)):
-	current_selection_of_variables=all_variables_ranked[:-i if i >0 else len(all_variables_ranked)]
-	name_appendix=str(30-i)+'variables'
-	TMVAoutfile='TMVAout_'+name_appendix+'.root'
-	resultfile='result_'+name_appendix+'.csv'
-	ROOT.gROOT.Macro("./TMVAlogon.C")
-	print "training---------------------------------------------------------"
-	start_time = time.time()
-	train(infile, TMVAoutfile)
-	# zeit in sekunden
-	duration=time.time()-start_time
-	print "evaluation---------------------------------------------------------"
-	evaluate(infile,resultfile)
-	print "analyse---------------------------------------------------------"
-	maxams_BDT = analyse(resultfile)
-	ams_results_file.write(str(30-i) + "\t" + str(maxams_BDT[0])+ "\t" + str(maxams_BDT[1])+ "\t" + str(duration)+ "\n")
+    	current_selection_of_variables=all_variables_ranked[:-i if i >0 else len(all_variables_ranked)]
+    	name_appendix=str(30-i)+'variables'
+    	TMVAoutfile='TMVAout_'+name_appendix+'.root'
+    	resultfile='result_'+name_appendix+'.csv'
+    	ROOT.gROOT.Macro("./TMVAlogon.C")
+    	print "training---------------------------------------------------------"
+    	start_time = time.time()
+    	train(infile, TMVAoutfile)
+    	# zeit in sekunden
+    	duration=time.time()-start_time
+    	print "evaluation---------------------------------------------------------"
+    	evaluate(infile,resultfile)
+    	print "analyse---------------------------------------------------------"
+    	maxams_BDT = analyse(resultfile)
+    	ams_results_file.write(str(30-i) + "\t" + str(maxams_BDT[0])+ "\t" + str(maxams_BDT[1])+ "\t" + str(duration)+ "\n")

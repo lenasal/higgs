@@ -54,8 +54,8 @@ for i in range(len(datas)):
     ax.set_xticklabels(x_labels, rotation="vertical")
 
 plt.tight_layout()
-plt.show()
-#plt.savefig("parameter_count_ranking_by_method.pdf")
+#plt.show()
+plt.savefig("var_transform_ranking.pdf")
 
 
 

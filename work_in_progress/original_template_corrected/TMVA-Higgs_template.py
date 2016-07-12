@@ -359,7 +359,7 @@ if __name__ == '__main__':
 #    ROOT.gROOT.SetBatch() # switch on root batch mode
 #                      useful if plots are to ge generated without displaying them
 
-    infile='atlas-higgs-challenge-2014-v2_part.root'
+    infile='../00daten/trainingsDaten/atlas-higgs-challenge-2014-v2_part.root'
     TMVAoutfile='TMVAout.root'
     resultfile='result.csv'
 

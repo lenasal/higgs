@@ -1,0 +1,64 @@
+--- Reader                   : Booking "Likelihood" of type "Likelihood" from weights/HiggsClassification_Likelihood.weights.xml.
+--- MethodBase               : Reading weight file: weights/HiggsClassification_Likelihood.weights.xml
+--- Likelihood               : Read method "Likelihood" of type "Likelihood"
+--- Likelihood               : MVA method was trained with TMVA Version: 4.2.0
+--- Likelihood               : MVA method was trained with ROOT Version: 5.34/14
+--- DataSetInfo              : Added class "Signal"	 with internal class number 0
+--- DataSetInfo              : Added class "Background"	 with internal class number 1
+--- Likelihood               : Reading signal and background PDF for variable: DER_mass_MMC
+--- Likelihood               : Reading signal and background PDF for variable: DER_mass_transverse_met_lep
+--- Likelihood               : Reading signal and background PDF for variable: DER_mass_vis
+--- Likelihood               : Reading signal and background PDF for variable: DER_pt_h
+--- Likelihood               : Reading signal and background PDF for variable: DER_deltaeta_jet_jet
+--- Likelihood               : Reading signal and background PDF for variable: DER_mass_jet_jet
+--- Likelihood               : Reading signal and background PDF for variable: DER_prodeta_jet_jet
+--- Likelihood               : Reading signal and background PDF for variable: DER_deltar_tau_lep
+--- Likelihood               : Reading signal and background PDF for variable: DER_pt_tot
+--- Likelihood               : Reading signal and background PDF for variable: DER_sum_pt
+--- Likelihood               : Reading signal and background PDF for variable: DER_pt_ratio_lep_tau
+--- Likelihood               : Reading signal and background PDF for variable: DER_met_phi_centrality
+--- Likelihood               : Reading signal and background PDF for variable: DER_lep_eta_centrality
+--- Likelihood               : Reading signal and background PDF for variable: PRI_tau_pt
+--- Likelihood               : Reading signal and background PDF for variable: PRI_tau_eta
+--- Likelihood               : Reading signal and background PDF for variable: PRI_tau_phi
+--- Likelihood               : Reading signal and background PDF for variable: PRI_lep_pt
+--- Likelihood               : Reading signal and background PDF for variable: PRI_lep_eta
+--- Likelihood               : Reading signal and background PDF for variable: PRI_lep_phi
+--- Likelihood               : Reading signal and background PDF for variable: PRI_met
+--- Likelihood               : Reading signal and background PDF for variable: PRI_met_phi
+--- Likelihood               : Reading signal and background PDF for variable: PRI_met_sumet
+--- Likelihood               : Reading signal and background PDF for variable: PRI_jet_num
+--- Likelihood               : Reading signal and background PDF for variable: PRI_jet_leading_pt
+--- Likelihood               : Reading signal and background PDF for variable: PRI_jet_leading_eta
+--- Likelihood               : Reading signal and background PDF for variable: PRI_jet_leading_phi
+--- Likelihood               : Reading signal and background PDF for variable: PRI_jet_subleading_pt
+--- Likelihood               : Reading signal and background PDF for variable: PRI_jet_subleading_eta
+--- Likelihood               : Reading signal and background PDF for variable: PRI_jet_subleading_phi
+--- Likelihood               : Reading signal and background PDF for variable: PRI_jet_all_pt
+--- Reader                   : Booked classifier "Likelihood" of type: "Likelihood"
+--- Reader                   : Booking "Fisher" of type "Fisher" from weights/HiggsClassification_Fisher.weights.xml.
+--- MethodBase               : Reading weight file: weights/HiggsClassification_Fisher.weights.xml
+--- Fisher                   : Read method "Fisher" of type "Fisher"
+--- Fisher                   : MVA method was trained with TMVA Version: 4.2.0
+--- Fisher                   : MVA method was trained with ROOT Version: 5.34/14
+--- Reader                   : Booked classifier "Fisher" of type: "Fisher"
+--- Reader                   : Booking "BDT" of type "BDT" from weights/HiggsClassification_BDT.weights.xml.
+--- MethodBase               : Reading weight file: weights/HiggsClassification_BDT.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.2.0
+--- BDT                      : MVA method was trained with ROOT Version: 5.34/14
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "MLP" of type "MLP" from weights/HiggsClassification_MLP.weights.xml.
+--- MethodBase               : Reading weight file: weights/HiggsClassification_MLP.weights.xml
+--- MLP                      : Read method "MLP" of type "MLP"
+--- MLP                      : MVA method was trained with TMVA Version: 4.2.0
+--- MLP                      : MVA method was trained with ROOT Version: 5.34/14
+--- MLP                      : Building Network
+--- MLP                      : Initializing weights
+--- Reader                   : Booked classifier "MLP" of type: "MLP"
+*==* evaluating validation sample
+13947 signal and 26995 background entries read from validation sample
+corresponding to  34.4722809588 signal and 20599.316513 background events
+*==* evaluating MVA results ...
+signal fraction in training sample is 0.00171495803576
+*==* ... stored in file result.csv

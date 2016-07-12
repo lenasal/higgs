@@ -1,9 +1,0 @@
-29	0.48699299744	PRI_lep_phi
-28	0.495240896167	DER_lep_eta_centrality
-27	0.502867725802	DER_mass_jet_jet
-26	0.515479324733	DER_deltaeta_jet_jet
-25	0.522884459047	PRI_met_sumet
-24	0.533880903927	PRI_jet_subleading_phi
-23	0.543406173409	DER_prodeta_jet_jet
-22	0.564989052442	PRI_jet_subleading_eta
-21	0.574477267259	DER_pt_tot

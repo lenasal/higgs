@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<MethodSetup Method="Fisher::Fisher">
+  <GeneralInfo>
+    <Info name="TMVA Release" value="4.2.0 [262656]"/>
+    <Info name="ROOT Release" value="5.34/14 [336398]"/>
+    <Info name="Creator" value="ubuntuuser"/>
+    <Info name="Date" value="Tue Jul 12 09:33:46 2016"/>
+    <Info name="Host" value="Linux lamiak 3.2.0-37-generic #58-Ubuntu SMP Thu Jan 24 15:28:10 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux"/>
+    <Info name="Dir" value="/home/ubuntuuser/mmdd/higgsChallenge/higgs/work_in_progress/original_template_corrected"/>
+    <Info name="Training events" value="24999"/>
+    <Info name="TrainingTime" value="2.35577106e-01"/>
+    <Info name="AnalysisType" value="Classification"/>
+  </GeneralInfo>
+  <Options>
+    <Option name="V" modified="Yes">True</Option>
+    <Option name="VerbosityLevel" modified="No">Verbose</Option>
+    <Option name="VarTransform" modified="No">None</Option>
+    <Option name="H" modified="Yes">True</Option>
+    <Option name="CreateMVAPdfs" modified="Yes">True</Option>
+    <Option name="IgnoreNegWeightsInTraining" modified="No">False</Option>
+    <Option name="Method" modified="Yes">Fisher</Option>
+  </Options>
+  <Variables NVar="30">
+    <Variable VarIndex="0" Expression="DER_mass_MMC" Label="DER_mass_MMC" Title="DER_mass_MMC" Unit="" Internal="DER_mass_MMC" Type="F" Min="-9.99000000e+02" Max="9.21419006e+02"/>
+    <Variable VarIndex="1" Expression="DER_mass_transverse_met_lep" Label="DER_mass_transverse_met_lep" Title="DER_mass_transverse_met_lep" Unit="" Internal="DER_mass_transverse_met_lep" Type="F" Min="1.40000004e-02" Max="6.90075012e+02"/>
+    <Variable VarIndex="2" Expression="DER_mass_vis" Label="DER_mass_vis" Title="DER_mass_vis" Unit="" Internal="DER_mass_vis" Type="F" Min="7.32999992e+00" Max="6.74552979e+02"/>
+    <Variable VarIndex="3" Expression="DER_pt_h" Label="DER_pt_h" Title="DER_pt_h" Unit="" Internal="DER_pt_h" Type="F" Min="0.00000000e+00" Max="7.34276978e+02"/>
+    <Variable VarIndex="4" Expression="DER_deltaeta_jet_jet" Label="DER_deltaeta_jet_jet" Title="DER_deltaeta_jet_jet" Unit="" Internal="DER_deltaeta_jet_jet" Type="F" Min="-9.99000000e+02" Max="7.96999979e+00"/>
+    <Variable VarIndex="5" Expression="DER_mass_jet_jet" Label="DER_mass_jet_jet" Title="DER_mass_jet_jet" Unit="" Internal="DER_mass_jet_jet" Type="F" Min="-9.99000000e+02" Max="3.33453394e+03"/>
+    <Variable VarIndex="6" Expression="DER_prodeta_jet_jet" Label="DER_prodeta_jet_jet" Title="DER_prodeta_jet_jet" Unit="" Internal="DER_prodeta_jet_jet" Type="F" Min="-9.99000000e+02" Max="1.47170000e+01"/>
+    <Variable VarIndex="7" Expression="DER_deltar_tau_lep" Label="DER_deltar_tau_lep" Title="DER_deltar_tau_lep" Unit="" Internal="DER_deltar_tau_lep" Type="F" Min="2.28000000e-01" Max="5.44000006e+00"/>
+    <Variable VarIndex="8" Expression="DER_pt_tot" Label="DER_pt_tot" Title="DER_pt_tot" Unit="" Internal="DER_pt_tot" Type="F" Min="0.00000000e+00" Max="3.14234009e+02"/>
+    <Variable VarIndex="9" Expression="DER_sum_pt" Label="DER_sum_pt" Title="DER_sum_pt" Unit="" Internal="DER_sum_pt" Type="F" Min="4.63790016e+01" Max="1.41996497e+03"/>
+    <Variable VarIndex="10" Expression="DER_pt_ratio_lep_tau" Label="DER_pt_ratio_lep_tau" Title="DER_pt_ratio_lep_tau" Unit="" Internal="DER_pt_ratio_lep_tau" Type="F" Min="9.00000036e-02" Max="1.35530005e+01"/>
+    <Variable VarIndex="11" Expression="DER_met_phi_centrality" Label="DER_met_phi_centrality" Title="DER_met_phi_centrality" Unit="" Internal="DER_met_phi_centrality" Type="F" Min="-1.41400003e+00" Max="1.41400003e+00"/>
+    <Variable VarIndex="12" Expression="DER_lep_eta_centrality" Label="DER_lep_eta_centrality" Title="DER_lep_eta_centrality" Unit="" Internal="DER_lep_eta_centrality" Type="F" Min="-9.99000000e+02" Max="1.00000000e+00"/>
+    <Variable VarIndex="13" Expression="PRI_tau_pt" Label="PRI_tau_pt" Title="PRI_tau_pt" Unit="" Internal="PRI_tau_pt" Type="F" Min="2.00000000e+01" Max="3.84756012e+02"/>
+    <Variable VarIndex="14" Expression="PRI_tau_eta" Label="PRI_tau_eta" Title="PRI_tau_eta" Unit="" Internal="PRI_tau_eta" Type="F" Min="-2.49300003e+00" Max="2.49200010e+00"/>
+    <Variable VarIndex="15" Expression="PRI_tau_phi" Label="PRI_tau_phi" Title="PRI_tau_phi" Unit="" Internal="PRI_tau_phi" Type="F" Min="-3.14199996e+00" Max="3.14100003e+00"/>
+    <Variable VarIndex="16" Expression="PRI_lep_pt" Label="PRI_lep_pt" Title="PRI_lep_pt" Unit="" Internal="PRI_lep_pt" Type="F" Min="2.60000000e+01" Max="4.23437988e+02"/>
+    <Variable VarIndex="17" Expression="PRI_lep_eta" Label="PRI_lep_eta" Title="PRI_lep_eta" Unit="" Internal="PRI_lep_eta" Type="F" Min="-2.49000001e+00" Max="2.49000001e+00"/>
+    <Variable VarIndex="18" Expression="PRI_lep_phi" Label="PRI_lep_phi" Title="PRI_lep_phi" Unit="" Internal="PRI_lep_phi" Type="F" Min="-3.14100003e+00" Max="3.14199996e+00"/>
+    <Variable VarIndex="19" Expression="PRI_met" Label="PRI_met" Title="PRI_met" Unit="" Internal="PRI_met" Type="F" Min="2.00000003e-01" Max="5.51059998e+02"/>
+    <Variable VarIndex="20" Expression="PRI_met_phi" Label="PRI_met_phi" Title="PRI_met_phi" Unit="" Internal="PRI_met_phi" Type="F" Min="-3.14100003e+00" Max="3.14199996e+00"/>
+    <Variable VarIndex="21" Expression="PRI_met_sumet" Label="PRI_met_sumet" Title="PRI_met_sumet" Unit="" Internal="PRI_met_sumet" Type="F" Min="1.36780005e+01" Max="1.49315405e+03"/>
+    <Variable VarIndex="22" Expression="PRI_jet_num" Label="PRI_jet_num" Title="PRI_jet_num" Unit="" Internal="PRI_jet_num" Type="F" Min="0.00000000e+00" Max="3.00000000e+00"/>
+    <Variable VarIndex="23" Expression="PRI_jet_leading_pt" Label="PRI_jet_leading_pt" Title="PRI_jet_leading_pt" Unit="" Internal="PRI_jet_leading_pt" Type="F" Min="-9.99000000e+02" Max="6.83197998e+02"/>
+    <Variable VarIndex="24" Expression="PRI_jet_leading_eta" Label="PRI_jet_leading_eta" Title="PRI_jet_leading_eta" Unit="" Internal="PRI_jet_leading_eta" Type="F" Min="-9.99000000e+02" Max="4.47599983e+00"/>
+    <Variable VarIndex="25" Expression="PRI_jet_leading_phi" Label="PRI_jet_leading_phi" Title="PRI_jet_leading_phi" Unit="" Internal="PRI_jet_leading_phi" Type="F" Min="-9.99000000e+02" Max="3.14000010e+00"/>
+    <Variable VarIndex="26" Expression="PRI_jet_subleading_pt" Label="PRI_jet_subleading_pt" Title="PRI_jet_subleading_pt" Unit="" Internal="PRI_jet_subleading_pt" Type="F" Min="-9.99000000e+02" Max="5.57179993e+02"/>
+    <Variable VarIndex="27" Expression="PRI_jet_subleading_eta" Label="PRI_jet_subleading_eta" Title="PRI_jet_subleading_eta" Unit="" Internal="PRI_jet_subleading_eta" Type="F" Min="-9.99000000e+02" Max="4.47200012e+00"/>
+    <Variable VarIndex="28" Expression="PRI_jet_subleading_phi" Label="PRI_jet_subleading_phi" Title="PRI_jet_subleading_phi" Unit="" Internal="PRI_jet_subleading_phi" Type="F" Min="-9.99000000e+02" Max="3.14100003e+00"/>
+    <Variable VarIndex="29" Expression="PRI_jet_all_pt" Label="PRI_jet_all_pt" Title="PRI_jet_all_pt" Unit="" Internal="PRI_jet_all_pt" Type="F" Min="-0.00000000e+00" Max="1.26444604e+03"/>
+  </Variables>
+  <Spectators NSpec="0"/>
+  <Classes NClass="2">
+    <Class Name="Signal" Index="0"/>
+    <Class Name="Background" Index="1"/>
+  </Classes>
+  <Transformations NTransformations="0"/>
+  <MVAPdfs>
+    <PDF Name="Fisher_PDFSig" MinNSmooth="100" MaxNSmooth="100" InterpolMethod="3" KDE_type="1" KDE_iter="1" KDE_border="1" KDE_finefactor="1.0000000000000000e+00">
+      <Histogram Name="Fisher_tr_S_original" NBins="100" XMin="-4.9961633682250977e+00" XMax="4.1116013526916504e+00" HasEquidistantBins="1">
+        0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 2.32908331e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 2.32908331e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00 2.32908331e-04 0.00000000e+00 2.32908331e-04 2.33037763e-04 8.77289193e-04 0.00000000e+00 8.22945061e-04 2.33037763e-04 4.11472530e-04 6.44510293e-04 1.28889115e-03 1.28889115e-03 4.00039482e-03 1.11019752e-03 2.39921811e-03 1.98748672e-03 1.75483725e-03 3.63350627e-03 5.26399402e-03 3.79679753e-03 7.92141242e-03 1.38554676e-02 2.17023378e-02 2.43051532e-02 4.41534668e-02 6.62085256e-02 1.19122110e-01 1.31511417e-01 2.36853507e-01 3.98192738e-01 4.60277744e-01 5.82892237e-01 9.41247929e-01 1.03747581e+00 1.08841130e+00 1.20092333e+00 1.24756302e+00 1.19468764e+00 9.07894304e-01 5.44748725e-01 3.00839612e-01 1.72378977e-01 6.61089533e-02 4.68834687e-02 1.92408170e-02 1.54581275e-02 1.35093936e-02 9.22096975e-03 2.63238531e-03 6.94532455e-03 4.05512725e-03 4.05525668e-03 3.58892229e-03 6.89059212e-03 4.65946094e-04 4.66075526e-04 2.33037763e-04 4.00052426e-03 2.33037763e-04 2.33037763e-04 2.33037763e-04 0.00000000e+00 2.33037763e-04 2.33037763e-04 4.11472530e-04 2.33037763e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 2.32908331e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00 
+      </Histogram>
+    </PDF>
+    <PDF Name="Fisher_PDFBkg" MinNSmooth="100" MaxNSmooth="100" InterpolMethod="3" KDE_type="1" KDE_iter="1" KDE_border="1" KDE_finefactor="1.0000000000000000e+00">
+      <Histogram Name="Fisher_tr_B_original" NBins="100" XMin="-4.9961633682250977e+00" XMax="4.1116013526916504e+00" HasEquidistantBins="1">
+        1.99329579e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 3.15756946e-04 6.52272404e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 7.26091781e-04 0.00000000e+00 3.29746707e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 7.75510221e-04 4.23987340e-04 8.75719590e-04 2.53978081e-03 9.37018969e-04 1.44682643e-03 1.23058917e-03 1.08347324e-03 2.47513594e-03 4.36272922e-03 5.48420161e-03 2.82908806e-03 3.87211763e-03 1.00275113e-02 1.38735037e-02 1.44276334e-02 2.20248881e-02 2.75034315e-02 3.76025074e-02 6.16966404e-02 1.33876944e-01 2.21186076e-01 3.30114668e-01 5.03496718e-01 5.96258180e-01 7.45292613e-01 7.64938052e-01 7.77339673e-01 7.96302267e-01 7.86466693e-01 7.81487297e-01 7.19053106e-01 6.76321548e-01 5.48461936e-01 4.64811495e-01 4.37943052e-01 3.43735965e-01 3.01089789e-01 2.90867041e-01 2.15516627e-01 1.37568614e-01 8.25332254e-02 5.16171030e-02 2.68364583e-02 1.02956669e-02 3.98136585e-03 4.43709933e-03 2.66722235e-03 1.49217375e-03 2.24760792e-03 7.33392106e-04 3.60589195e-04 1.02544886e-03 1.18567338e-04 1.11508148e-03 1.02109116e-04 0.00000000e+00 8.22894412e-05 0.00000000e+00 1.71616169e-05 3.82325600e-05 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 8.06299841e-05 0.00000000e+00 0.00000000e+00 1.71616169e-05 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00 
+      </Histogram>
+    </PDF>
+  </MVAPdfs>
+  <Weights NCoeff="31">
+    <Coefficient Index="0" Value="-3.6580253564289933e-01"/>
+    <Coefficient Index="1" Value="9.1676556085301648e-05"/>
+    <Coefficient Index="2" Value="-8.7057792407805295e-03"/>
+    <Coefficient Index="3" Value="-9.7431888944814731e-03"/>
+    <Coefficient Index="4" Value="2.1325020047768811e-04"/>
+    <Coefficient Index="5" Value="6.4870642725381331e-02"/>
+    <Coefficient Index="6" Value="1.5333962113417418e-04"/>
+    <Coefficient Index="7" Value="6.3538452826623609e-03"/>
+    <Coefficient Index="8" Value="4.7418782803158865e-01"/>
+    <Coefficient Index="9" Value="1.2363897172456004e-03"/>
+    <Coefficient Index="10" Value="-6.7195560298860055e+00"/>
+    <Coefficient Index="11" Value="-3.4302544737695934e-01"/>
+    <Coefficient Index="12" Value="7.3749803330088057e-02"/>
+    <Coefficient Index="13" Value="-6.1368411871399062e-02"/>
+    <Coefficient Index="14" Value="6.7275089435279352e+00"/>
+    <Coefficient Index="15" Value="-2.0773577223280877e-03"/>
+    <Coefficient Index="16" Value="-1.7089715391058742e-03"/>
+    <Coefficient Index="17" Value="6.7351346351206285e+00"/>
+    <Coefficient Index="18" Value="-1.4643751630387667e-03"/>
+    <Coefficient Index="19" Value="-6.1848970480866666e-03"/>
+    <Coefficient Index="20" Value="3.7427888919694390e-05"/>
+    <Coefficient Index="21" Value="4.0628620270553020e-03"/>
+    <Coefficient Index="22" Value="7.1272355252088848e-04"/>
+    <Coefficient Index="23" Value="-6.0381258718818373e-02"/>
+    <Coefficient Index="24" Value="9.5302629831728303e-04"/>
+    <Coefficient Index="25" Value="-2.3138947442085107e-03"/>
+    <Coefficient Index="26" Value="1.4812542080626652e-03"/>
+    <Coefficient Index="27" Value="-1.5467952853072116e-03"/>
+    <Coefficient Index="28" Value="-4.6128907216314008e-04"/>
+    <Coefficient Index="29" Value="-7.8349550243785853e-03"/>
+    <Coefficient Index="30" Value="6.7182525172829610e+00"/>
+  </Weights>
+</MethodSetup>
