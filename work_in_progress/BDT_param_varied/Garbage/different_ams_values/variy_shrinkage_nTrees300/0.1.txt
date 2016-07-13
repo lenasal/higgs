@@ -1,0 +1,8 @@
+Mean of Average Distance (MAD):
+  MAD for BDT 0.763204529034
+Mean Squared Error (MSE):
+  MSE for BDT 0.660204701749
+Average Mean Sensitivity (AMS) and cut value:
+  - raw classifier
+  AMS for BDT (0.74125338724135792, 0.8188018999564356)
+Press <ret> to continue -> 

@@ -1,0 +1,17 @@
+# NTrees = 200
+# nEventsMin = 2%
+# Shrinkage = 0.1
+# BaggedGrad:GradBaggingFraction = 0.5
+# ncuts = 200
+# MaxDepth = 5
+
+
+
+Mean of Average Distance (MAD):
+  MAD for BDT 0.731010440716
+Mean Squared Error (MSE):
+  MSE for BDT 0.612281045275
+Average Mean Sensitivity (AMS) and cut value:
+  - raw classifier
+  AMS for BDT (0.72838001161786736, 0.8048364520020066)
+Press <ret> to continue -> 
