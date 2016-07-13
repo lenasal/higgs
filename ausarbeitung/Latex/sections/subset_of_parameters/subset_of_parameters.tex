@@ -4,15 +4,15 @@
 Um eine geeignete Untermenge an Parametern zu finden, haben wir die Relevanz der
 Parameter evaluiert. Dafür sind wir wie folgt vorgegangen:
 
-Die TMVA-Methoden geben selbst eine Ranglistein Bezug auf die Relevalnz der
-Parameter aus. Um diese zu evaluieren, liesen wir die Trainingsalgorithmen
-dreisig mal durchlaufen. Jedes Mal mit einer Variable weniger und die
+Die TMVA-Methoden geben selbst eine Rangliste in Bezug auf die Relevalnz der
+Parameter aus. Um diese zu evaluieren, ließen wir die Trainingsalgorithmen
+dreisig mal durchlaufen - jedes Mal mit einer Variable weniger und die
 Reihenfolge des Entfernens entsprach der Rangliste. Jedes Mal wurde der AMS-Wert
 protokoliert. Diese Methode werteten wir für das Liklihood-, das Fisher- und das
 BDT-Verfahren aus.
 
 Für das MLP-Verfahren gingen wir wie folgt vor: Wir trainierten das neuronale
-Netz dreisig mal und liesen jedes Mal einen anderen Parameter weg. Desto höher
+Netz dreisig mal und ließen jedes Mal einen anderen Parameter weg. Desto höher
 der erreichte AMS-Wert war, desto irrelevanter bzw. sogar nachteiliger ist der
 weggelassene Parameter. Gemäß des AMS-Werts lässt sich ebenfalls eine Rangliste
 erstellen. Danach wurde so verfahren, wie im vorangehenden Abschnitt
@@ -21,9 +21,10 @@ Parametern durchgeführt, wobei die Reihenfolge des Weglassens der erstellten
 Rangliste entsprach.
 
 Das beste vorgehen war allerdings Folgendes: Wir trainierten die Methoden
-und liesen dabei jedes Mal einen anderen Paramerter weg. Der Parameter dessen
-Entfernen den höchsten AMS-Wert erreichte wurde aus der Parametermenge entfernt.
-Diesen Vorgehen wurde wiederholt bis nur noch ein Parameter übrig war. Dafür
+und liesen dabei jedes Mal einen anderen Parameter weg. Der Parameter, dessen
+Entfernen den höchsten AMS-Wert erreichte, wurde aus der Parametermenge
+entfernt.
+Dieses Vorgehen wurde wiederholt bis nur noch ein Parameter übrig war. Dafür
 sind 465 Trainingszyklen notwendig. Aufgrund der langen Trainingszeit
 haben wir dieses Vorgehen nicht bei der MLP-Methode verwendet.
 
@@ -36,7 +37,7 @@ senkrechten Strich gekennzeichent und liegt jeweils beim maximalen AMS-Wert.
 Die Rangliste der Parameter und welche Parameter wir letztendlich benutzt haben,
 steht in Tabelle \ref{table:parameter_ranking}.
 
-Darüber hinaus sieht man, dass bei der Likelihood- und bei der Fisher-Methode
+Die Ergebnisse zeigen, dass bei der Likelihood- und bei der Fisher-Methode
 unsere Rangliste der Parameter ein besseres Ergebnis liefert als die interne
 Rangliste der TMVA-Methoden.
 
