@@ -1,0 +1,15 @@
+
+tmva_factory.BookMethod(ROOT.TMVA.Types.kBDT, "BDT", global_options + "NTrees=200:nEventsMin=2%:BoostType=Grad:Shrinkage=0.05:UseBaggedGrad:GradBaggingFraction=0.5:nCuts=200:MaxDepth=5"+ additional_options)
+
+
+
+
+
+Mean of Average Distance (MAD):
+  MAD for BDT 0.727029862537
+Mean Squared Error (MSE):
+  MSE for BDT 0.60827987775
+Average Mean Sensitivity (AMS) and cut value:
+  - raw classifier
+  AMS for BDT (0.74407191561596453, 0.82425291259240774)
+Press <ret> to continue -> 
