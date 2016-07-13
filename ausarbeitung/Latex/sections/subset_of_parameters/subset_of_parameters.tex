@@ -1,70 +1,36 @@
-\section{Auswahl einer geeigneten Untermenge an Parametern}
+\section{Auswahl einer geeigneten Untermenge an Variablen}
 
 \subsection{Vorgehen}
-Um eine geeignete Untermenge an Parametern zu finden, haben wir die Relevanz der
-Parameter evaluiert. Dafür sind wir wie folgt vorgegangen:
+Um eine geeignete Untermenge an Variablen für die multivariate Analyse zu finden, haben wir die Relevanz der
+Variablen, die je nach verwendetem Trainingsalgorithmus (Likelihood, Fisher, BDT, MLP) unterschiedlich ausfallen kann, evaluiert. Hierzu haben wir verschiedene Verfahren angewandt, die im Folgenden beschrieben werden.
 
-Die TMVA-Methoden geben selbst eine Rangliste in Bezug auf die Relevalnz der
-Parameter aus. Um diese zu evaluieren, ließen wir die Trainingsalgorithmen
-dreisig mal durchlaufen - jedes Mal mit einer Variable weniger und die
-Reihenfolge des Entfernens entsprach der Rangliste. Jedes Mal wurde der AMS-Wert
-protokoliert. Diese Methode werteten wir für das Liklihood-, das Fisher- und das
-BDT-Verfahren aus.
 
-Für das MLP-Verfahren gingen wir wie folgt vor: Wir trainierten das neuronale
-Netz dreisig mal und ließen jedes Mal einen anderen Parameter weg. Desto höher
-der erreichte AMS-Wert war, desto irrelevanter bzw. sogar nachteiliger ist der
-weggelassene Parameter. Gemäß des AMS-Werts lässt sich ebenfalls eine Rangliste
-erstellen. Danach wurde so verfahren, wie im vorangehenden Abschnitt
-beschrieben: Das Training wurde mit 30, dann mit 29, dann mit 29, \ldots
-Parametern durchgeführt, wobei die Reihenfolge des Weglassens der erstellten
-Rangliste entsprach.
+Im Zuge der  Ausführung der Trainingsalgorithmen des vorgegebenen TMVA-Templates wird von diesem für jede Klassifizierungsmethode eine Rangliste bzgl. der Wichtigkeit der einzelnen Variablen erstellt. Um die Tauglichkeit dieser Rangliste zu überprüfen, betrachteten wir die Trainingsalgorithmen separat und trainierten den Likelihood-, Fisher-, sowie den BDT-Algorithmus jeweils insgesamt 30 mal, wobei entsprechend der vom TMVA-Template ausgegebenen Reihenfolge jeweils eine Variable entfernt wurde (beginnend mit der irrelevantesten).Bei jedem dieser insgesamt 90 Trainings wurde der ausgegebene AMS-Wert für das entsprechende Variablen-Subset protokolliert. Die Entwicklung der AMS-Werte mit abnehmender Variablenzahl sind in Abbildung \ref{fig:ams_over_parameter_count} gezeigt. Es ist deutlich zu erkennen, dass der Likelihood-Algorithmus einen ähnlichen Verlauf wie der Fisher-Algorithmus aufweist. Dies lässt sich dadurch erklären, dass es sich hierbei um ähnliche Algorithmen handelt. Eine sinnvolle Untermenge an Variablen liese sich demnach mithilfe des Maximums des AMS-Verlaufs bestimmen.
 
-Das beste vorgehen war allerdings Folgendes: Wir trainierten die Methoden
-und liesen dabei jedes Mal einen anderen Parameter weg. Der Parameter, dessen
-Entfernen den höchsten AMS-Wert erreichte, wurde aus der Parametermenge
-entfernt.
-Dieses Vorgehen wurde wiederholt bis nur noch ein Parameter übrig war. Dafür
-sind 465 Trainingszyklen notwendig. Aufgrund der langen Trainingszeit
-haben wir dieses Vorgehen nicht bei der MLP-Methode verwendet.
+Da das Training des neuronalen Netzwerks mit Abstand die meiste Zeit benötigt, wurde hier ein anderes Verfahren angewandt: Es wurden 30 Trainingsläufe mit je einer entfernten Variablen durchgeführt und die Variablen entsprechend des jeweils erreichten AMS-Werts sortiert. Anschließend führten wir das zuvor beschriebene Verfahren gemäß dieses Rankings durch und erhielten den in Abbildung \ref{fig:ams_over_parameter_count} gezeigten Verlauf der AMS-Werte.
+
+
+Dieses Verfahren stellte den Startpunkt für eine tiefergehende Analyse der Relevanz der einzelnen Variablen dar: Für jede Methode wurde das Training 30 mal mit jeweils einer aus dem Parameterset entfernten Variable durchgeführt, wobei die irrelevanteste Variable (höchster AMS-Wert) ermittelt wurde. Diese wurde aus dem Variablen-Set entfernt und das Training 29 mal durchgeführt, wobei jeweils eine der übrigen Variablen entfernt wurde. Je nach erzieltem AMS-Wert wurde das Parameter-Subset wiederum um den unwichtigsten Parameter reduziert usw. Da dieses Vorgehen aufgrund der langen Trainingszeit des neuronales Netzwerks hierfür nicht durchzuführen war, beschränkten wir uns hierbei auf die übrigen drei Verfahren. Insgesamt wurde zur Erstellung der entsprechenden Rankings das Training $3\cdot465=1395$ mal durchgeführt. Der Verlauf des AMS-Werts in Abhängigkeit der Anzahl verwendeter Parameter ist  Abbildung \ref{fig:ams_over_parameter_count} zu entnehmen. Da die AMS-Werte höher liegen als bei dem zuvor beschriebenen Verfahren, ist diese Rangliste als aussagekräftiger zu erachten.
 
 
 \subsection{Auswertung}
 
-Die Ergebnisse sind in Abbildung \ref{fig:ams_over_parameter_count} gezeigt.
-Welche Parameteranzahl wir für jede Methode verwendet haben ist durch einen
-senkrechten Strich gekennzeichent und liegt jeweils beim maximalen AMS-Wert.
-Die Rangliste der Parameter und welche Parameter wir letztendlich benutzt haben,
-steht in Tabelle \ref{table:parameter_ranking}.
+Die Ergebnisse für den Verlauf der AMS-Werte bzgl. der verschiedenen Ranglisten sind in Abbildung \ref{fig:ams_over_parameter_count} gezeigt. Ein senkrechter Strich markiert jeweils das Maximum, anhand dessen die Auswahl des geeigneten Variablen-Subsets festgelegt wurde: Alle Variablen, die zu diesem Zeitpunkt noch Teil des Trainingsprozesses waren, sind Teil des für die weitere Auswertung der Daten gewählten Parameter-Sets. Welche Variablen dies für die jeweiligen Trainings-Algorithmen sind, ist Tabelle \ref{table:parameter_ranking} zu entnehmen. An oberster Stelle in der Tabelle stehen dabei die für die Analyse wichtigsten Parameter. Ein waagrechter Strich zeigt die Begrenzung des Variablen-Subsets an. 
 
-Die Ergebnisse zeigen, dass bei der Likelihood- und bei der Fisher-Methode
-unsere Rangliste der Parameter ein besseres Ergebnis liefert als die interne
-Rangliste der TMVA-Methoden.
-
-Ausschlaggebend bezüglich des AMS-Wertes ist die Verkleinerung der
-Parametermenge lediglich bei der Likelihood-Methode. Allerdings bringt eine
-reduzierte Parametermenge auch eine reduzierte Laufzeit des Algorithmus mit
-sich, was insbesondere für die MLP-Methode nützlich ist, da sie eine lange
-Trainigszeit erfordert.
-
-
+Eine deutliche Verbesserung des AMS-Werts durch eine Verkleinerung der Variablenanzahl zeigt sich lediglich bei der Likelihood-Methode (siehe Abbildung \ref{fig:ams_over_parameter_count}). Da allerdings hiermit auch eine Reduzierung der Trainingszeit einhergeht, was vor allem beim neuronalen Netzwerk aufgrund seiner langen Algorithmenlaufzeit vorteilhaft ist.
 
 
 %\usepackage{graphics} is needed for \includegraphics
 \begin{figure}[htp]
 \begin{center}
   \includegraphics[width=\linewidth]{sections/subset_of_parameters/parameter_count_ranking_by_method.pdf}
-  \caption[AMS über der Anzahl der Parameter]{AMS über der Anzahl der Parameter.}
+  \caption[AMS über der Anzahl der Parameter]{AMS über der Anzahl der Variablen.}
   \label{fig:ams_over_parameter_count}
 \end{center}
 \end{figure}
 
 \begin{table}
-\caption{Bewertung der Parameter. Für die einzelnen Methoden nimmt die
-Gewichtung der Parameter von oben nach unten ab. Für jede Methode ist durch
-\mbox{"`-----"'} gekennzeichnet, welche Parameter nicht mehr verwendet werden.
-Bei der BDT-Methode wurde unter den besten acht Parametern kein Ranking mehr
-vorgenommen.}
+\caption{Rangliste der Variablen bzgl. ihrer Relevanz für die Analyse. Die Wichtigkeit der Parameter nimmt von oben nach unten ab. Für jede Methode ist durch einen waagrechten Strich die durch das Maximum des AMS-Verlaufs gegebene Abgrenzung einer geeigneten Auswahl an Variablen gekennzeichnet. Bei der BDT-Methode wurde unter den besten acht Parametern kein Ranking vorgenommen.}
 \small
 \hspace{-1cm}
 \begin{tabular}{c|c|c|c}
