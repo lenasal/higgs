@@ -40,23 +40,23 @@ def get_variables():
         "PRI_jet_subleading_pt",
         "PRI_lep_phi",
         "DER_mass_MMC",
-        "DER_deltaeta_jet_jet"
-        #"DER_lep_eta_centrality",
-        #"PRI_jet_leading_phi",
-        #"PRI_jet_leading_eta",
-        #"DER_sum_pt",
-        #"PRI_jet_subleading_eta",
-        #"PRI_tau_phi",
-        #"PRI_met_phi",
-        #"PRI_jet_leading_pt",
-        #"PRI_tau_eta",
-        #"PRI_met_sumet",
-        #"PRI_jet_num",
-        #"DER_pt_tot",
-        #"PRI_lep_eta",
-        #"PRI_jet_subleading_eta",
-        #"PRI_jet_all_pt",
-        #"DER_met_phi_centrality"
+        "DER_deltaeta_jet_jet",
+        "DER_lep_eta_centrality",
+        "PRI_jet_leading_phi",
+        "PRI_jet_leading_eta",
+        "DER_sum_pt",
+        "PRI_jet_subleading_eta",
+        "PRI_tau_phi",
+        "PRI_met_phi",
+        "PRI_jet_leading_pt",
+        "PRI_tau_eta",
+        "PRI_met_sumet",
+        "PRI_jet_num",
+        "DER_pt_tot",
+        "PRI_lep_eta",
+        "PRI_jet_subleading_eta",
+        "PRI_jet_all_pt",
+        "DER_met_phi_centrality"
     ]
 
 def train(feature_filename = 'atlas-higgs-challenge-2014-v2_part.root', 
@@ -91,7 +91,7 @@ def train(feature_filename = 'atlas-higgs-challenge-2014-v2_part.root',
     global_options = 'H:V:CreateMVAPdfs:NbinsMVAPdf=100:'
     # EXERCISE: try Normalise, decorrelate or transform to a gaussian distribution for methodes other than
     # neural network and decorrelated Likelihood:
-    #additional_options = 'VarTransform=N,D,G:'
+    additional_options = 'VarTransform=N,D:'
 
     """
     # decorrelated likelihood
@@ -102,7 +102,7 @@ def train(feature_filename = 'atlas-higgs-challenge-2014-v2_part.root',
     
     
     # Fisher's Method
-    tmva_factory.BookMethod(ROOT.TMVA.Types.kFisher, "Fisher", global_options + fisher_options)
+    tmva_factory.BookMethod(ROOT.TMVA.Types.kFisher, "Fisher", global_options + additional_options + fisher_options)
     
     
     """
@@ -432,11 +432,11 @@ if __name__ == '__main__':
       sys.exit(1)
 
     
-  out_file_name="ams_over_param.dat"
+  out_file_name="ams_over_param_all_variables.dat"
   
   #define the grid/parameter space
-  PDFInterpolMVAPdfs = range(1,6)
-  NsmoothMVAPdfs = range(10,100, 5)
+  PDFInterpolMVAPdfs = range(1,4)
+  NsmoothMVAPdfs = range(10,200, 5)
   
   
   amss=[]

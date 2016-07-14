@@ -408,11 +408,12 @@ if __name__ == '__main__':
     out_file_name="results_var_transform"+method_name+".dat"
     
     var_transform_options=[
-        "N",
-        "D",
-        "G",
-        "N,D", "D,N", "N,G", "G,N", "D,G", "G,D",
-        "N,D,G", "N,G,D", "D,G,N", "D,N,G", "G,N,D", "G,D,N"
+        #"N",
+        #"D",
+        #"G",
+        #"N,D", "D,N", "N,G", "G,N", "D,G", "G,D",
+        #"N,D,G", "N,G,D", "D,G,N", "D,N,G", "G,N,D", "G,D,N",
+        "N,D,N,D,N,D"
     ]        
     results=[]      
     for var_transform_option in var_transform_options:
