@@ -1,3 +1,10 @@
 \section{Optimierung der Parameter des Fisher-Algorithmus}
-
-lorem ipsum dolores
+Um einen höheren AMS-Wert zu erreichen, variierten wir folgende zwei Parameter des Fisher-Algorithmus.
+\begin{equation}
+\begin{split}
+ \mbox{\textit{PDFInterpolMVAPdf}} &\in \{ \mbox{ Spline1,  Spline2, Spline3}  \}  \\
+ \mbox{\textit{NsmoothMVAPdf}} &\in \{ \mbox{5,10,15, \ldots, 195} \}
+\end{split}
+\end{equation}
+Der erste Parameter steht für den Grad der Splines mit denen die Wahrscheinlichkeitsverteilungen der Eingabeparameter interpoliert werden. Der zweite Parameter steht für die Anzahl an iterativen Glättungen dieser Verteilungen. 
+Das Training dieser Methode mit dem gegebenen Datensatz kostet wenig Zeit - meistens weniger als Minute. Das macht es möglich mit einem brute-force-Ansatz alle Parameterkonstellationen durchzuprobieren. Der AMS-Wert war unabhängig von der Wahl der Parameter \textit{PDFInterpolMVAPdf} und \textit{NsmoothMVAPdf} konstant 0.496. Wir verzichteten auf weitere Optimierungen unter Verwendung des Fisher-Algorithmus, da die erzielten AMS-Werte deutlich unter denen der BDT-Methode lagen.
