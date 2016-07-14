@@ -302,13 +302,13 @@ def analyse(result_filename = 'result.csv'):
 
   print "  AMS for BDT", maxams_BDT
 #----------------------------------------------------------------------------------------------------------------------------------------------------------  
-montecarlofile = open("montecarlo_results.txt", "w")
+montecarlofile = open("montecarlo_results.txt", "a")
 np.random.seed()
 for _ in range(10000):
   shrinks = np.random.uniform(0.06,0.1)  
   Depth = np.random.random_integers(5,9)
   NT = np.random.random_integers(200,1100)
-  nEventsMin = np.random.uniform(0.5,2.5)
+  nEventsMin = np.random.uniform(0.5,10.0)
   nCuts =np.random.random_integers(150,550)
   
   montecarlofile.write(str(shrinks)+ " " +str(Depth)+ " " +str(NT)+ " " +str(nEventsMin)+ " " +str(nCuts)+ " ")
@@ -316,7 +316,7 @@ for _ in range(10000):
   train(shrinks,Depth,NT,nEventsMin,nCuts)
   evaluate()
   analyse()
-  
+  montecarlofile.flush()
   
   
   
