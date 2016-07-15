@@ -24,6 +24,8 @@ import matplotlib.pyplot as plt
 #
 # --- Training of classifiers  ------------------------------------------------------
 #
+bestams = 0.77
+bestparams = [0.0654204005317,7.33556903529]
 def get_variables():
 #return [
         #"DER_mass_MMC",
@@ -283,7 +285,8 @@ def analyse(result_filename = 'result.csv'):
 	return s/np.sqrt(b+10.0)
 
   def find_best_ams(x, y, w):
-
+      global bestams
+      global bestparams
   # ----------------------------------------------------------
       ymin=min(y) # classifiers may not be in range [0.,1.]
       ymax=max(y)
@@ -291,6 +294,9 @@ def analyse(result_filename = 'result.csv'):
       amsvec= [(ams(x, y, w, cut), cut) for cut in np.linspace(ymin, ymax, nprobe)] 
       maxams=sorted(amsvec, key=lambda lst: lst[0] )[-1]
       montecarlofile.write(str(maxams[0])+"\n")
+      if maxams[0] > bestams:
+	bestams = maxams[0]
+	bestparams = [shrinks, nEventsMin]
       return maxams, amsvec
 
 
@@ -304,11 +310,12 @@ def analyse(result_filename = 'result.csv'):
 #----------------------------------------------------------------------------------------------------------------------------------------------------------  
 montecarlofile = open("montecarlo_results.txt", "a")
 np.random.seed()
+
 for _ in range(10000):
-  shrinks = np.random.uniform(0.06,0.1)  
+  shrinks = np.random.normal(bestparams[0],0.01)  
   Depth = np.random.random_integers(5,9)
   NT = np.random.random_integers(200,1100)
-  nEventsMin = np.random.uniform(0.5,10.0)
+  nEventsMin = np.random.normal(bestparams[1],0.5)
   nCuts =np.random.random_integers(150,550)
   
   montecarlofile.write(str(shrinks)+ " " +str(Depth)+ " " +str(NT)+ " " +str(nEventsMin)+ " " +str(nCuts)+ " ")
