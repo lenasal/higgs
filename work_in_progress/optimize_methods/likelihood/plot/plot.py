@@ -24,7 +24,7 @@ print "p_NAvEvtPerBin = ", data[ind_score][4]
 AMSs = data[:,5]
 plt.hist(AMSs, bins=25)
 plt.title("AMS-Werte der Likelihood-Methode unter Variation der Parameter")
-plt.ylim(0, 40)
+plt.ylim(0, 150)
 plt.show()
 
 

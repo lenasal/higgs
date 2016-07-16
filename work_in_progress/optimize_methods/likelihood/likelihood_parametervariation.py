@@ -1,4 +1,4 @@
-cd #!/usr/bin/env python
+#!/usr/bin/env python
 
 #- - - - - - TMVA-Higgs.py - - - - - - - - - - - - - - - - - - - - - - -
 # template and examples to analyse data from the
@@ -352,7 +352,7 @@ if __name__ == '__main__':
   out_file_name="ams_over_param_all_variables.dat"
   
   #define the grid/parameter space
-  PDFInterpols = range(0, 6)			#default: 2; must be positive integer
+  PDFInterpols = range(4, 5)			#default: 2; must be positive integer
   NsmoothSigs = [20]				#default: 20; must be positive integer
   NsmoothBkgs = [20]				#default: 20; must be positive integer
   Nsmooths = range(0,13)			#default: 5; must be positive integer
