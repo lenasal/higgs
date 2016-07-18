@@ -24,7 +24,6 @@ import matplotlib.pyplot as plt
 #
 # --- Training of classifiers  ------------------------------------------------------
 #
-
 def get_variables():
 #return [
         #"DER_mass_MMC",
@@ -139,7 +138,6 @@ def train(shrinkage,Depth,NT,nEventsMin,nCuts,feature_filename = 'atlas-higgs-ch
   tmva_factory.EvaluateAllMethods()
 
 def get_SignalFraction(feature_file):
-  global nResult 
   # Determine signal fraction in training sample from event weights
   label_value = array.array( 'c',  ['x'])
   weight_value = array.array( 'f',  [0.0])
@@ -164,16 +162,15 @@ def get_SignalFraction(feature_file):
   #
 
   # columns in .csv file written by function evaluate(), used in function analyse() 
-  TRUTH, WEIGHT, Likelihood, FISHER, BDT, MLP,\
-	    Likelihood_prb, FISHER_prb, BDT_prb, MLP_prb,\
-	    Likelihood_rar, FISHER_rar, BDT_rar, MLP_rar =\
-  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-  nResult=14
+TRUTH, WEIGHT, Likelihood, FISHER, BDT, MLP,\
+	  Likelihood_prb, FISHER_prb, BDT_prb, MLP_prb,\
+	  Likelihood_rar, FISHER_rar, BDT_rar, MLP_rar =\
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+nResult=14
 
 def evaluate(feature_filename = 'atlas-higgs-challenge-2014-v2_part.root', 
     result_filename='result.csv' ):
   #
-  global nResult
   # evaluate the trained MVA methods on the validation sample
   #  input: 
   #    feature_filename : root file with input data;  
@@ -273,48 +270,52 @@ def analyse(result_filename = 'result.csv'):
   print "  MSE for BDT", mse(result[:,TRUTH], result[:, BDT], result[:, WEIGHT])
   #print "  MSE for MLP", mse(result[:,TRUTH], result[:, MLP], result[:, WEIGHT])
 
-def ams(x, y, w, cut):
-  # Calculate Average Mean Significane as defined in ATLAS paper
-  #    -  approximative formula for large statistics with regularisation
-  # x: array of truth values (1 if signal)
-  # y: array of classifier result
-  # w: array of event weights
-  # cut
-      t = y > cut 
-      s = np.sum((x[t] == 1)*w[t])
-      b = np.sum((x[t] == 0)*w[t])
-      return s/np.sqrt(b+10.0)
+  def ams(x, y, w, cut):
+    # Calculate Average Mean Significane as defined in ATLAS paper
+    #    -  approximative formula for large statistics with regularisation
+    # x: array of truth values (1 if signal)
+    # y: array of classifier result
+    # w: array of event weights
+    # cut
+	t = y > cut 
+	s = np.sum((x[t] == 1)*w[t])
+	b = np.sum((x[t] == 0)*w[t])
+	return s/np.sqrt(b+10.0)
 
-def find_best_ams(x, y, w):
+  def find_best_ams(x, y, w):
 
-# ----------------------------------------------------------
-    ymin=min(y) # classifiers may not be in range [0.,1.]
-    ymax=max(y)
-    nprobe=200    # number of (equally spaced) scan points to probe classifier 
-    amsvec= [(ams(x, y, w, cut), cut) for cut in np.linspace(ymin, ymax, nprobe)] 
-    maxams=sorted(amsvec, key=lambda lst: lst[0] )[-1]
-    ams_array.append(maxams[0])
-    return maxams, amsvec
-
-
-    maxams_BDT, amsvec_BDT=find_best_ams(result[:,TRUTH], result[:, BDT], result[:, WEIGHT])
+  # ----------------------------------------------------------
+      ymin=min(y) # classifiers may not be in range [0.,1.]
+      ymax=max(y)
+      nprobe=200    # number of (equally spaced) scan points to probe classifier 
+      amsvec= [(ams(x, y, w, cut), cut) for cut in np.linspace(ymin, ymax, nprobe)] 
+      maxams=sorted(amsvec, key=lambda lst: lst[0] )[-1]
+      montecarlofile.write(str(maxams[0])+"\n")
+      return maxams, amsvec
 
 
-    print "Average Mean Sensitivity (AMS) and cut value:"
-    print "  - raw classifier"
-
-    print "  AMS for BDT", maxams_BDT
-#----------------------------------------------------------------------------------------------------------------------------------------------------------      
-shrinks = np.random.uniform(0.06,0.1)  
-Depth = np.random.random_integers(5,9)
-NT = np.random.random_integers(200,1100)
-nEventsMin = np.random.uniform(0.5,2.5)
-nCuts =np.random.random_integers(150,550)
+  maxams_BDT, amsvec_BDT=find_best_ams(result[:,TRUTH], result[:, BDT], result[:, WEIGHT])
 
 
-train(shrinks,Depth,NT,nEventsMin,nCuts)
-evaluate()
-analyse()
+  print "Average Mean Sensitivity (AMS) and cut value:"
+  print "  - raw classifier"
+
+  print "  AMS for BDT", maxams_BDT
+#----------------------------------------------------------------------------------------------------------------------------------------------------------  
+montecarlofile = open("montecarlo_results.txt", "w")
+np.random.seed()
+for _ in range(10000):
+  shrinks = np.random.uniform(0.06,0.1)  
+  Depth = np.random.random_integers(5,9)
+  NT = np.random.random_integers(200,1100)
+  nEventsMin = np.random.uniform(0.5,2.5)
+  nCuts =np.random.random_integers(150,550)
+  
+  montecarlofile.write(str(shrinks)+ " " +str(Depth)+ " " +str(NT)+ " " +str(nEventsMin)+ " " +str(nCuts)+ " ")
+
+  train(shrinks,Depth,NT,nEventsMin,nCuts)
+  evaluate()
+  analyse()
   
   
   

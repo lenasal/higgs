@@ -1,0 +1,47 @@
+
+
+*******************************************************************************
+Thu Jul 14 16:10:54 2016
+
+
+FIT:    data read from 'montecarlo_results.txt' u 3:6
+        format = x:z
+        x range restricted to [168.577 : 1158.37]
+        #datapoints = 213
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 1.04057e+08       delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 494.054
+
+initial set of free parameter values
+
+a               = 1
+b               = 1
+
+After 6 iterations the fit converged.
+final sum of squares of residuals : 0.0255673
+rel. change during last iteration : -1.05033e-11
+
+degrees of freedom    (FIT_NDF)                        : 211
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0110078
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000121172
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = -3.14555e-05     +/- 3.088e-06    (9.816%)
+b               = 0.755018         +/- 0.002157     (0.2857%)
+
+
+correlation matrix of the fit parameters:
+
+               a      b      
+a               1.000 
+b              -0.937  1.000 
