@@ -15,12 +15,19 @@ Dieses Verfahren stellte den Startpunkt für eine tiefergehende Analyse der Rele
 
 \subsection{Auswertung}
 
-Die Ergebnisse für den Verlauf der AMS-Werte bzgl. der verschiedenen Ranglisten sind in Abbildung \ref{fig:ams_over_parameter_count} gezeigt. Ein senkrechter Strich markiert jeweils das Maximum, anhand dessen die Auswahl des geeigneten Variablen-Subsets festgelegt wurde: Alle Variablen, die zu diesem Zeitpunkt noch Teil des Trainingsprozesses waren, sind Teil des für die weitere Auswertung der Daten gewählten Parameter-Sets. Welche Variablen dies für die jeweiligen Trainings-Algorithmen sind, ist Tabelle \ref{table:parameter_ranking} zu entnehmen. An oberster Stelle in der Tabelle stehen dabei die für die Analyse wichtigsten Parameter. Ein waagrechter Strich zeigt die Begrenzung des Variablen-Subsets an. 
+Die Ergebnisse für den Verlauf der AMS-Werte bzgl. der verschiedenen Ranglisten sind in Abbildung \ref{fig:ams_over_parameter_count} gezeigt. Ein senkrechter Strich markiert jeweils das Maximum, anhand dessen die Auswahl der geeigneten Variablenuntermenge festgelegt wurde: Alle Variablen, die zu diesem Zeitpunkt noch Teil des Trainingsprozesses waren, sind Teil der für die weitere Auswertung der Daten gewählten Variablenuntermenge. Welche Variablen dies für die jeweiligen Trainings-Algorithmen sind, ist Tabelle \ref{table:parameter_ranking} zu entnehmen. An oberster Stelle in der Tabelle stehen dabei die für die Analyse wichtigsten Parameter. Ein waagrechter Strich zeigt die Begrenzung der Variablenuntermenge an. 
 
-Eine deutliche Verbesserung des AMS-Werts durch eine Verkleinerung der Variablenanzahl zeigt sich lediglich bei der Likelihood-Methode (siehe Abbildung \ref{fig:ams_over_parameter_count}). Da allerdings hiermit auch eine Reduzierung der Trainingszeit einhergeht, was vor allem beim neuronalen Netzwerk aufgrund seiner langen Algorithmenlaufzeit vorteilhaft ist.
+Das Verkleinerung der Variablenanzahl wirkt sich zweierlei auf die Analyse aus. Erstens kann der erreichte AMS-Wert steigen oder sinken. Zweitens reduziert sich die Trainingszeit. Anhand dieser beiden Kriterien haben wir eine Auswahl für die Untermenge an Variablen getroffen:
+
+Eine deutliche Verbesserung des AMS-Werts durch eine Verkleinerung der Variablenanzahl zeigt sich lediglich bei der Likelihood-Methode (siehe Abbildung \ref{fig:ams_over_parameter_count}). Aus diesem Grund arbeiteten wir bei weiteren Untersuchungen dieser Methode mit der verkleinerten Variablenmenge.
+
+Die Fisher-Methode zeigte kleine Verbesserungen des AMS-Wertes bei verkleinerter Variablenanzahl. Die Trainingslaufzeit ist allerdings so kurz, dass es kaum einen Unterschied macht, ob man den vollen Variablensatz verwendet oder einen reduzierten. Welche Auswahl im Einzelnen getroffen wurde, ist im Einzelfall dokumentiert.
+
+Die BDT-Methode wird nur gering von der Anzahl der Variablen beeinflusst. Ob mit der vollen Variablenmenge weiter gearbeitet wurde, oder der verkleinerte Satz benutzt wurde, ist an den entsprechenden Stellen dokumentiert.
+
+Für das neuronale Netz ist die Trainingszeit erheblich. Aus diesem Grund arbeiteten wir mit der verkleinerten Variablenuntermenge weiter.  
 
 
-%\usepackage{graphics} is needed for \includegraphics
 \begin{figure}[htp]
 \begin{center}
   \includegraphics[width=\linewidth]{sections/subset_of_parameters/parameter_count_ranking_by_method.pdf}
