@@ -91,7 +91,7 @@ def train(feature_filename = 'atlas-higgs-challenge-2014-v2_part.root',
       tmva_factory.BookMethod(ROOT.TMVA.Types.kBDT, "BDT", global_options + "NTrees=1000:MinNodeSize=2%:BoostType=Grad:Shrinkage=0.10:UseBaggedBoost:GradBaggingFraction=0.5:nCuts=500:MaxDepth=5")
     # neural network (this takes very long to train ...)
     tmva_factory.BookMethod(ROOT.TMVA.Types.kMLP, "MLP", global_options +  "VarTransform=N,D,G:" +\
-      "NeuronType=tanh:NCycles=500:HiddenLayers=N+5:TestRate=5:TrainingMethod=BP:UseRegulator" )
+      "NeuronType=tanh:NCycles=500:HiddenLayers=5:TestRate=5:TrainingMethod=BP:UseRegulator" )
 
     #! EXERCISE: Reduce complexity of hyper-parameters of the different methods to avoid over-training
     #tmva_factory.BookMethod(ROOT.TMVA.Types.kFisher, "Fisher", 

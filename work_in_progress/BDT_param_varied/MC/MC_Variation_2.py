@@ -24,7 +24,7 @@ import matplotlib.pyplot as plt
 #
 # --- Training of classifiers  ------------------------------------------------------
 #
-bestams = 0.
+bestams = 0.77
 bestparams = [0.0530833026321, 9, 275, 7.28244760204, 167]
 def get_variables():
 #return [
@@ -311,13 +311,14 @@ def analyse(result_filename = 'result.csv'):
 montecarlofile = open("montecarlo_results.txt", "a")
 np.random.seed()
 
-for _ in range(10000):
+for i in range(10000):
   shrinks = np.random.normal(bestparams[0],0.01)  
   Depth = np.random.poisson(bestparams[1])
   NT = np.random.poisson(bestparams[2])
   nEventsMin = np.random.normal(bestparams[3],0.5)
   nCuts =np.random.poisson(bestparams[4])
-  
+  if i%25 == 0:
+    bestparams = [shrinks, Depth, NT, nEventsMin, nCuts]
   montecarlofile.write(str(shrinks)+ " " +str(Depth)+ " " +str(NT)+ " " +str(nEventsMin)+ " " +str(nCuts)+ " ")
 
   train(shrinks,Depth,NT,nEventsMin,nCuts)
