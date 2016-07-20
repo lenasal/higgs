@@ -1,0 +1,33 @@
+ 
+\begin{figure}[!t]
+  \begin{tabular}[b]{cc}
+	  \begin{subfigure}[b]{0.5\linewidth}
+	   	\includegraphics[width=\linewidth]{sections/parameter_optimization_bdt/Depth.png}
+ 		\caption[]{}
+		\label{fig:bdt_Depth}
+  	  \end{subfigure} &
+  	  \begin{subfigure}[b]{0.5\linewidth}
+  	  	\includegraphics[width=\linewidth]{sections/parameter_optimization_bdt/nCuts.png}
+ 		\caption[]{}
+		\label{fig:bdt_nCuts}
+  	  \end{subfigure} \\
+  	  
+  	  \begin{subfigure}[b]{0.5\linewidth}
+	   	\includegraphics[width=\linewidth]{sections/parameter_optimization_bdt/nEvents.png}
+ 		\caption[]{}
+		\label{fig:bdt_nEvents}
+  	  \end{subfigure} &
+  	  \begin{subfigure}[b]{0.5\linewidth}
+  	  	\includegraphics[width=\linewidth]{sections/parameter_optimization_bdt/Nt.png}
+ 		\caption[]{}
+		\label{fig:bdt_Nt}
+  	  \end{subfigure} \\
+  	  
+  	  \begin{subfigure}[b]{0.5\linewidth}
+	   	\includegraphics[width=\linewidth]{sections/parameter_optimization_bdt/Shrinkage.png}
+ 		\caption[]{}
+		\label{fig:bdt_Shrinkage}
+  	  \end{subfigure} &
+  \end{tabular}
+  \caption[]{}
+\end{figure}
