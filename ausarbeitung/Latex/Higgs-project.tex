@@ -16,6 +16,9 @@
 \usepackage[bottom]{footmisc}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{bibliography.bib}
+\usepackage[nottoc,numbib]{tocbibind}
 %------------------------------------------%
 
 
@@ -88,8 +91,11 @@
 \input{sections/parameter_optimization_bdt/parameter_optimization_bdt}
 \input{sections/parameter_optimization_ANN/parameter_optimization_ANN}
 \input{sections/conclusion/conclusion}
+
+\nocite{*}
+\printbibliography
+%\bibliographystyle{alpha}
 %\bibliography{bibliography}
-\bibliographystyle{alpha}
 %\bibliographystyle{unsrt}
 
 \end{document}
