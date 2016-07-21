@@ -1,5 +1,6 @@
 \section{Optimierung der Parameter des BDT-Algorithmus}
-Bei dem Boosted Decision Tree wurde der AMS schlechter wenn Variablen entfernt wurden, daher wurde der volle Satz an Variablen verwendet. Um die optimalen Parameter für den BDT zu finden, haben wir für die Parameter
+\label{sec:bdt_optimization}
+Bei der BDT-Methode wurde je nach Parameter-Konstellation der AMS schlechter wenn nicht der volle Eingabevariablensatz verwendet wurde. Daher wurde der volle Satz an Variablen verwendet. Um die optimalen Parameter für den BDT zu finden, haben wir für die Parameter
 \begin{itemize}
 	\item NTrees
 	\item NEventsMin
@@ -7,9 +8,9 @@ Bei dem Boosted Decision Tree wurde der AMS schlechter wenn Variablen entfernt w
 	\item nCuts
 	\item MaxDepth
 \end{itemize} 
-sinnvolle Bereiche festgelegt und wollten in diesem Parameterraum den besten AMS finden. Da die Laufzeit des Trainings für jeden Punkt im Parameterraum in der Größenordnung von Minuten liegt und wir 5 Parameter haben, lassen sich herkömmliche Optimierungsalgorithmen nicht sinnvoll anwenden.\\
-Um einen Überblick zu erhalten ob es gewisse Bereiche gibt in denen der AMS generell besser ist, haben wir sehr oft (1389 mal) zufällige Parameter gewählt und den AMS dazu gespeichert. Wenn ein neuer Bestwert erreicht wurde, wurden die kontinuierlichen Parameter NEventsMin und Shrinkage Gaußverteilt um die zugehörigen Werte erzeugt.\\
-Wie in den Abbildungen \ref{AMS-distribution-plots} (a)-(e) zu erkennen ist, gibt es für einzelne Parameter kaum einen optimalen Wert. Aus diesem Grund haben wir uns für die Parameter entschieden mit denen wir den besten AMS-Wert erreicht hatten. Dies war der Fall bei
+sinnvolle Bereiche festgelegt und suchten in diesem Parameterraum den besten AMS. Da die Laufzeit des Trainings für jeden Punkt im Parameterraum in der Größenordnung von Minuten liegt und wir 5 Parameter haben, lassen sich herkömmliche Optimierungsalgorithmen nicht sinnvoll anwenden.\\
+Um einen Überblick zu erhalten ob es gewisse Bereiche im Parameterraum gibt, in denen der AMS generell besser ist, haben wir 1389 mal zufällige Parameter gewählt und den AMS dazu gespeichert. Wenn ein neuer Bestwert erreicht wurde, wurden die kontinuierlichen Parameter NEventsMin und Shrinkage gaußverteilt um die zugehörigen Werte erzeugt.\\
+Wie in den Abbildungen \ref{AMS-distribution-plots} (a)-(e) zu erkennen ist, gibt es für einzelne Parameter keinen optimalen Wert. Die Auswirkungen der Parameter sind korreliert und eine Optimierung in nur einem Parameter nicht möglich. Des besten AMS erreichten wir mit
 \begin{itemize}
 	\item NTrees = 167
 	\item NEventsMin = 7.28244760204
@@ -49,6 +50,6 @@ was auf den Trainingsdaten zu einem AMS-Wert von $0{,}773$ führte.
 		\label{fig:bdt_Shrinkage}
   	  \end{subfigure} &
   \end{tabular}
-  \caption[]{AMS-Werte für die Parameter des Boosted Decision Tree als Scatter-Plots. Jeder Punkt entspricht einem Training}
+  \caption[AMS-Werte für die Parameter der Boosted Decision Trees]{AMS-Werte für die Parameter der Boosted Decision Trees als Scatter-Plots. Jeder Punkt entspricht einem Training.}
   \label{AMS-distribution-plots}
 \end{figure}
