@@ -10,7 +10,7 @@ Bei der BDT-Methode wurde je nach Parameter-Konstellation der AMS schlechter wen
 \end{itemize} 
 sinnvolle Bereiche festgelegt und suchten in diesem Parameterraum den besten AMS. Da die Laufzeit des Trainings für jeden Punkt im Parameterraum in der Größenordnung von Minuten liegt und wir 5 Parameter haben, lassen sich herkömmliche Optimierungsalgorithmen nicht sinnvoll anwenden.\\
 Um einen Überblick zu erhalten ob es gewisse Bereiche im Parameterraum gibt, in denen der AMS generell besser ist, haben wir 1389 mal zufällige Parameter gewählt und den AMS dazu gespeichert. Wenn ein neuer Bestwert erreicht wurde, wurden die kontinuierlichen Parameter NEventsMin und Shrinkage gaußverteilt um die zugehörigen Werte erzeugt.\\
-Wie in den Abbildungen \ref{AMS-distribution-plots} (a)-(e) zu erkennen ist, gibt es für einzelne Parameter keinen optimalen Wert. Die Auswirkungen der Parameter sind korreliert und eine Optimierung in nur einem Parameter nicht möglich. Des besten AMS erreichten wir mit
+Wie in den Abbildungen \ref{fig:AMS-distribution-plots} (a)-(e) zu erkennen ist, gibt es für einzelne Parameter keinen optimalen Wert. Die Auswirkungen der Parameter sind korreliert und eine Optimierung in nur einem Parameter nicht möglich. Des besten AMS erreichten wir mit
 \begin{itemize}
 	\item NTrees = 167
 	\item NEventsMin = 7.28244760204
